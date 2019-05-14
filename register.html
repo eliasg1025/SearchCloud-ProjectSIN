@@ -48,13 +48,17 @@
     </nav>
     <!-- END NAVBAR -->
 
+	<!-- REGISTER SECTION -->
    	<div class="container register">
                 <div class="row">
                     <div class="col-md-3 register-left">
                         <img src="img/white-book-png.png" alt=""/>
                         <h3>Crea una cuenta</h3>
                         <p>¿Ya estas registrado?</p>
-                        <input type="submit" name="" value="Login"/><br/>
+						<a href="login.html" class="btn">
+							Ingresa
+						</a>
+                        <br/>
                     </div>
                     <div class="col-md-9 register-right">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -67,7 +71,7 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Crea un cuenta gratis</h3>
+                                <h3 class="register-heading">Crea una cuenta Gratuita</h3>
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -76,36 +80,23 @@
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Apellidos" value="" />
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Contraseña" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Confirmar contraseña" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline">
-                                                    <input type="radio" name="gender" value="male" checked>
-                                                    <span>Hombre</span>
-                                                </label>
-                                                <label class="radio inline">
-                                                    <input type="radio" name="gender" value="female">
-                                                    <span>Mujer</span>
-                                                </label>
-                                                <label class="radio inline">
-                                                    <input type="radio" name="gender" value="other">
-                                                    <span>Otros</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
+										<div class="form-group">
                                             <input type="email" class="form-control" placeholder="Email" value="" />
                                         </div>
                                         <div class="form-group">
                                             <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Telefono" value="" />
                                         </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+										<div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Contraseña" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control"  placeholder="Confirmar contraseña" value="" />
+                                        </div>
+
                                         <div class="form-group">
                                             <select class="form-control">
                                                 <option class="hidden"  selected disabled>Selecciona tu universidad</option>
@@ -121,7 +112,23 @@
                                                 <option>Universidad del Pacífico</option>
                                             </select>
                                         </div>
-                                        <input type="submit" class="btnRegister"  value="Registrate"/>
+										<div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span>Hombre</span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Mujer</span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" value="other">
+                                                    <span>Otros</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btnRegister"  value="Registrar"/>
                                     </div>
                                 </div>
                             </div>
@@ -151,18 +158,38 @@
                                         <div class="form-group">
                                             <input type="password" class="form-control" placeholder="Confirma contraseña" value="" />
                                         </div>
-                                        <div class="form-group">
+										<div class="form-group">
                                             <select class="form-control">
                                                 <option class="hidden"  selected disabled>Selecciona tu universidad</option>
-                                                <option>What is your Birthdate?</option>
-                                                <option>What is Your old Phone Number</option>
-                                                <option>What is your Pet Name?</option>
+                                                <option>Pontificia Universidad Católica del Perú</option>
+                                                <option>Universidad Peruana Cayetano Heredia</option>
+                                                <option>Universidad Nacional Mayor de San Marcos</option>
+                                                <option>Universidad Nacional Agraria La Molina</option>
+                                                <option>Universidad Nacional de Ingeniería</option>
+                                                <option>Universidad Nacional San Antonio Abad del Cusco</option>
+                                                <option>Universidad Nacional de Trujillo</option>
+                                                <option>Universidad Científica del Sur</option>
+                                                <option>Universidad de Piura</option>
+                                                <option>Universidad del Pacífico</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
+										<div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span>Hombre</span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Mujer</span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" value="other">
+                                                    <span>Otros</span>
+                                                </label>
+                                            </div>
                                         </div>
-                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                        <input type="submit" class="btnRegister"  value="Registrar"/>
                                     </div>
                                 </div>
                             </div>
