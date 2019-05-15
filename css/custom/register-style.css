@@ -114,3 +114,21 @@ body {
         margin-left: auto;
     }
 }
+
+.card-info input {
+    margin-top: 10px;
+}
+
+.card-info .select-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.card-info .select-container .form-control {
+    width: 50%;
+}
+
+.card-info .select-container .form-control nth:first-child {
+    margin-right: 2%;
+}
