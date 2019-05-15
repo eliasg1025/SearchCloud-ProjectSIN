@@ -59,7 +59,7 @@ body {
     margin-top: 10%;
 }
 
-.btnRegister{
+.btnRegister {
     float: right;
     margin-top: 10%;
     border: none;
@@ -70,6 +70,13 @@ body {
     font-weight: 600;
     width: 50%;
     cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .btnRegister {
+        margin-top: 25px;
+        max-width: 212px;
+    }
 }
 
 .register .nav-tabs{
