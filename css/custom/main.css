@@ -55,7 +55,7 @@
 }
 
 
-/* Search */
+/* Search bar section */
 
 .search-overlay {
     background: -webkit-linear-gradient(left, rgba(57, 49, 175, .3), rgba(0, 198, 255, .3));
@@ -93,13 +93,13 @@
 .searchbar:hover>.search_input {
     padding: 0 10px;
     width: 450px;
-    caret-color: red;
+    caret-color: #0062cc;
     transition: width 0.4s linear;
 }
 
 .searchbar:hover>.search_icon {
     background: white;
-    color: #e74c3c;
+    color: #0062cc;
 }
 
 .search_icon {
