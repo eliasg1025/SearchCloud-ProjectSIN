@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SearchCloud</title>
     <!-- BOOTSTRAP CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -65,19 +67,22 @@
 
     <!-- SEARCH BAR -->
     <div class="container search-section">
-        <h2 class="h1 text-center py-5">¿Que deseas averiguar?</h2>
-    <div class="pb-5">
-        <div class="container h-100">
-          <div class="d-flex justify-content-center h-100">
-            <div class="searchbar">
-              <input class="search_input" type="text" name="" placeholder="Ingresa palabra clave">
-              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        <div class="search-overlay text-white">
+            <h2 class="h1 text-center py-5">¿Que deseas averiguar?</h2>
+            <div class="pb-5">
+                <div class="container h-100">
+                  <div class="d-flex justify-content-center h-100">
+                    <div class="searchbar">
+                        <input class="search_input" type="text" name="" placeholder="Ingresa palabra clave">
+                        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    </div>
+                  </div>
+                </div>
             </div>
-          </div>
         </div>
+
     </div>
-    </div>
-    
+
 
     <!-- CAROUSEL -->
     <section class="carousel-section py-5">
@@ -135,20 +140,21 @@
                 </div>
                 <div class="slide">
                     <a href="#">
-                        <img src="img/icons/016-economy.png">
-                        <div class="card-block">
-                            <h4 class="card-title text-center">Economia</h4>
-                        </div>
-                    </a>
-                </div>
-                <div class="slide">
-                    <a href="#">
                         <img src="img/icons/024-computer.png">
                         <div class="card-block">
                             <h4 class="card-title text-center">Programacion</h4>
                         </div>
                     </a>
                 </div>
+                <div class="slide">
+                    <a href="#">
+                        <img src="img/icons/016-economy.png">
+                        <div class="card-block">
+                            <h4 class="card-title text-center">Economia</h4>
+                        </div>
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>

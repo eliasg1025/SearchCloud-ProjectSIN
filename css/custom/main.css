@@ -18,7 +18,7 @@
 
 .background-overlay {
     position: absolute;
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(left, rgba(57, 49, 175, .9), rgba(0, 198, 255, .9));
     top: 0;
     left: 0;
     width: 100%;
@@ -35,7 +35,7 @@
 
 .carousel-section {
     color: rgb(248, 249, 250);
-    background-image: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(left, rgba(57, 49, 175, 1), rgba(0, 198, 255, 1));
 }
 
 .slide {
@@ -54,9 +54,16 @@
     text-decoration: none;
 }
 
-/* Search */
+
+/* Search bar section */
+
+.search-overlay {
+    background: -webkit-linear-gradient(left, rgba(57, 49, 175, .3), rgba(0, 198, 255, .3));
+}
 
 .search-section {
+    padding: 0;
+    min-width: 100vw;
     background: url("https://images.pexels.com/photos/34627/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size: cover;
     background-position: center;
@@ -86,13 +93,13 @@
 .searchbar:hover>.search_input {
     padding: 0 10px;
     width: 450px;
-    caret-color: red;
+    caret-color: #0062cc;
     transition: width 0.4s linear;
 }
 
 .searchbar:hover>.search_icon {
     background: white;
-    color: #e74c3c;
+    color: #0062cc;
 }
 
 .search_icon {

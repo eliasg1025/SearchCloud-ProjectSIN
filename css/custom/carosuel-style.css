@@ -4,6 +4,22 @@
     margin: 50px 20px;
 }
 
+.slick-slide .card-title{
+    font-size: 12px;
+}
+
+@media screen and (min-width: 430px) {
+    .slick-slide .card-title{
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .slick-slide .card-title{
+        font-size: 20px;
+    }
+}
+
 .slick-slide img {
     width: 100%;
 }
