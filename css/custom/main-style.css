@@ -11,11 +11,58 @@ body {
 }
 
 @media screen and (min-width: 576px) {
-    .#subjects-button {
+    #subjects-button {
         display: none;
     }
 
     #subjects-list {
         display: block;
+    }
+}
+
+#profile-resume {
+    display: none;
+}
+
+#options {
+    
+}
+
+.layout-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.left-section {
+    width: 100%;
+}
+
+.middle-section {
+    width: 100%;
+}
+
+.right-section {
+    width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+    .left-section {
+        width: 25%;
+    }
+
+    .middle-section {
+        width: 75%;
+    }
+
+    .right-section {
+        width: 100%;
+    }
+
+    #subjects-list {
+        text-align: center;
+    }
+
+    .entry {
+
     }
 }
