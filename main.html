@@ -11,9 +11,69 @@
         <!-- FONT AWESOME -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
             integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!-- CUSTOM CSS -->
+        <link rel="stylesheet" href="css/custom/main-style.css">
     </head>
     <body>
-        <h1>Hola</h1>
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="main.html">
+                    <img src="https://lh3.googleusercontent.com/lhGthtdL0EEbhDxr8rsjlMtqHCBKjmWxxWyuhmTGuS7RKAylnk4EEtkVxJ8jY2qFLUHn=w300"
+                        class="image-responsive thumbnail" width="25" height="25" class="d-inline-block align-top"
+                        alt="logo">
+                    SearchCloud
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+    	                        <span style="font-size: 23px;">
+                                    <i class="fas fa-bell"></i>
+                                </span>
+                        	</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                <span style="font-size: 23px;">
+                                    <i class="fas fa-user-circle"></i>
+                                </span>
+                        	</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END NAVBAR -->
+        <div class="layout-container">
+            <div class="left-section p-3">
+                <button id="subjects-button" class="btn btn btn-outline-light btn-block" type="button" data-toggle="collapse" data-target="#subjects-list" aria-expanded="false" aria-controls="subjects-list">
+                    Todas las asignaturas
+                </button>
+
+                <div class="list-group collapse" id="subjects-list" role="tablist">
+                    <button type="button" class="list-group-item list-group-item-action active" data-toggle="list" role="tab" aria-controls="home">Todas las asignaturas</button>
+                    <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab" aria-controls="profile">Matematicas</button>
+                    <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab" aria-controls="messages">Quimica</button>
+                    <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab" aria-controls="settings">Biologia</button>
+                    <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab" aria-controls="settings">Fisica</button>
+                    <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab" aria-controls="settings">Ingenieria</button>
+                    <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab" aria-controls="settings">Derecho</button>
+                    <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab" aria-controls="settings">Informatica</button>
+                    <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab" aria-controls="settings">Economia</button>
+                </div>
+            </div>
+            <div class="right-section">
+
+            </div>
+        </div>
+
+
+
         <!-- BOOTSTRAP JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -23,6 +83,17 @@
         </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+        <script type="text/javascript">
+            $(document).ready(showSubject);
+
+            function showSubject() {
+                $(".list-group").on("click", function() {
+                    var active = $(".active").text();
+                    $("#subjects-button").text(active);
+                });
+            }
+
         </script>
     </body>
 </html>

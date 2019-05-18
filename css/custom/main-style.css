@@ -1,0 +1,21 @@
+body {
+    background: -webkit-linear-gradient(left, rgba(57, 49, 175, .9), rgba(0, 198, 255, .9));
+}
+
+.navbar-collapse .nav-link {
+    padding: 5px;
+}
+
+#subjects-list {
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 576px) {
+    .#subjects-button {
+        display: none;
+    }
+
+    #subjects-list {
+        display: block;
+    }
+}
