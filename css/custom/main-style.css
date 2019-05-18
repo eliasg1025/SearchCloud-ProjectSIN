@@ -24,9 +24,6 @@ body {
     display: none;
 }
 
-#options {
-    
-}
 
 .layout-container {
     display: flex;
@@ -61,8 +58,27 @@ body {
     #subjects-list {
         text-align: center;
     }
+}
 
-    .entry {
+@media screen and (min-width: 992px) {
+    .left-section {
+        width: 16%;
+    }
 
+    .middle-section {
+        width: 60%;
+    }
+
+    .right-section {
+        width: 24%;
+    }
+
+    #profile-resume {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    #profile-resume img {
+        width: 100%;
     }
 }
