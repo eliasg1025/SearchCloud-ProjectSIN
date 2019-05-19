@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SearchCloud</title>
+    <!-- BOOTSTRAP CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="css\custom\ask-style.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="main.html">
+                <img src="https://lh3.googleusercontent.com/lhGthtdL0EEbhDxr8rsjlMtqHCBKjmWxxWyuhmTGuS7RKAylnk4EEtkVxJ8jY2qFLUHn=w300"
+                    class="image-responsive thumbnail" width="25" height="25" class="d-inline-block align-top"
+                    alt="logo">
+                SearchCloud
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span style="font-size: 23px;">
+                                <i class="fas fa-bell"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            <span style="font-size: 23px;">
+                                <i class="fas fa-user-circle"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <!-- LAYOUT -->
+    <div class="layout-container">
+
+        <!-- LEFT SECTION -->
+        <div class="left-section p-3">
+            <div class="container title-container">
+                <h2 class="text-white">Comienza a preguntar</h2>
+            </div>
+
+            <!-- FORM CONTAINER -->
+            <div class="ask-container"> <!-- register-right -->
+                <!-- FORM -->
+                <form action="" method="" class="ask-form" > <!-- register-form -->
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option class="hidden" selected disabled>Elija el tema</option>
+                            <option>Matematicas</option>
+                            <option>Quimica</option>
+                            <option>Biologia</option>
+                            <option>Fisica</option>
+                            <option>Ingenieria</option>
+                            <option>Derecho</option>
+                            <option>Informatica</option>
+                            <option>Economia</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control" name="ask" id="ask" cols="50" rows="10" placeholder="Escribe su pregunta"></textarea>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-8">
+                            <label id="insert-label" for="upload-image upload-file">Insertar documentos:</label>
+                        </div>
+                        <div id="upload-image" class="upload col-2">
+                            <label for="file-input">
+                                <i class="fas fa-upload"></i>
+                            </label>
+                            <input id="file-input" type="file">
+                        </div>
+                        <div id="upload-file" class="upload col-2">
+                            <label for="image-input">
+                                <i class="fas fa-images"></i>
+                            </label>
+                            <input id="image-input" type="file" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" class="form-control btn btn-primary" value="Enviar" />
+                    </div>
+                </form>
+                <!-- END FORM -->
+            </div>
+        </div>
+
+        <!-- RIGHT SECTION -->
+        <div class="right-section p-3">
+            <div id="profile-resume" class="card p-3">
+                <div class="row">
+                    <div class="col-5">
+                        <img src="img/user-default.png" alt="user-default" class="img-fuild rounded-circle">
+                        <p class="text-center mt-3">pedrito123</p>
+                    </div>
+                    <div class="col">
+                        <h4>Pedrito</h4>
+                        <h6>Universidad de Piura</h6>
+                        <a role="button" class="btn btn-outline-info">Ver Perfil</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="options" class="card">
+                <div class="card-body p-3">
+                    <h5 class="card-title text-center"><i class="fas fa-bars"></i> Opciones</h5>
+                    <div class="btn-group-vertical btn-block">
+                        <a href="index.html" class="btn btn-outline-info">Pagina Principal</a>
+                        <a class="btn btn-outline-info">Ver repositorio de archivos</a>
+                        <a class="btn btn-outline-info">Cambiar a cuenta Premium</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
