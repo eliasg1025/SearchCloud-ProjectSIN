@@ -1,0 +1,97 @@
+body {
+    background: -webkit-linear-gradient(left, rgba(57, 49, 175, .9), rgba(0, 198, 255, .9));
+}
+
+.navbar-collapse .nav-link {
+    padding: 5px;
+}
+
+.layout-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.left-section {
+    width: 100%;
+}
+
+.right-section {
+    width: 100%;
+}
+
+#profile-resume {
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    .left-section {
+        width: 75%;
+    }
+
+    .right-section {
+        width: 25%;
+    }
+
+    #profile-resume {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    #profile-resume img {
+        width: 100%;
+    }
+}
+
+.title-container {
+    margin: 30px auto auto 50px;
+}
+
+.ask-container {
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+
+.ask-form {
+    padding: 5% 10%;
+    margin-top: 40px;
+}
+
+.btnRegister {
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .btnRegister {
+        margin-top: 25px;
+        max-width: 212px;
+    }
+}
+
+.upload > input {
+    display: none;
+}
+
+.upload i {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#insert-label {
+    display: block;
+    text-align: right;
+}
+
+#upload-image label {
+    display: block;
+    text-align: center;
+}
