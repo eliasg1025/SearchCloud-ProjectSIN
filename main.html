@@ -103,108 +103,138 @@
                 </div>
             </div>
 
+            <!-- FILTER BUTTONS --->
+            <section class="filter-buttons mt-4">
+                <div class="container mt-3 row">
+                    <label for="entries-filter" class="text-white col-sm-3 col-form-label">
+                        Ordenar por:
+                    </label>
+                    <select id="entries-filter" class="form-control col-sm-6">
+                        <option class="hidden" selected>Mas relevantes</option>
+                        <option value="">Mas vistas</option>
+                        <option value="">Mas recientes</option>
+                        <option value="">Mas antiguas</option>
+                    </select>
+                </div>
+                <div class="container mt-3 row">
+                    <label for="search-filter" class="text-white col-sm-3 col-form-label">
+                        Buscar por:
+                    </label>
+                    <div class="input-group col-sm-6" style="padding: 0;">
+                        <input id="search-filter" type="text" class="form-control" placeholder="Ingrese palabra clave" aria-label="Ingrese palabra clave" aria-describedby="button-search">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-light" type="button" id="button-search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- ENTRIES -->
-            <div class="entry card m-3">
-                <div class="card-body">
-                    <span class="badge badge-pill badge-primary">Matematicas</span>
-                    <h6 class="card-title">
-                        <i class="fas fa-user-circle"></i> username1 | Hoy - 21:30
-                    </h6>
-                    <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
-                        veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                    <a href="#" class="btn btn-primary">Resolver</a>
+            <section class="entries">
+                <div class="entry card m-3">
+                    <div class="card-body">
+                        <span class="badge badge-pill badge-primary">Matematicas</span>
+                        <h6 class="card-title">
+                            <i class="fas fa-user-circle"></i> username1 | Hoy - 21:30
+                        </h6>
+                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
+                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
+                        <a href="#" class="btn btn-primary">Resolver</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
+                            visitas</small>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
-                        visitas</small>
-                </div>
-            </div>
 
-            <div class="entry card m-3">
-                <div class="card-body">
-                    <span class="badge badge-pill badge-primary">Quimica</span>
-                    <h6 class="card-title">
-                        <i class="fas fa-user-circle"></i> username2 | Hoy - 16:45
-                    </h6>
-                    <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
-                        veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                    <a href="#" class="btn btn-primary">Resolver</a>
+                <div class="entry card m-3">
+                    <div class="card-body">
+                        <span class="badge badge-pill badge-primary">Quimica</span>
+                        <h6 class="card-title">
+                            <i class="fas fa-user-circle"></i> username2 | Hoy - 16:45
+                        </h6>
+                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
+                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
+                        <a href="#" class="btn btn-primary">Resolver</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
+                            visitas</small>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
-                        visitas</small>
-                </div>
-            </div>
 
-            <div class="entry card m-3">
-                <div class="card-body">
-                    <span class="badge badge-pill badge-primary">Informatica</span>
-                    <h6 class="card-title">
-                        <i class="fas fa-user-circle"></i> username3 | Hoy - 10:45
-                    </h6>
-                    <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
-                        veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                    <a href="#" class="btn btn-primary">Resolver</a>
+                <div class="entry card m-3">
+                    <div class="card-body">
+                        <span class="badge badge-pill badge-primary">Informatica</span>
+                        <h6 class="card-title">
+                            <i class="fas fa-user-circle"></i> username3 | Hoy - 10:45
+                        </h6>
+                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
+                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
+                        <a href="#" class="btn btn-primary">Resolver</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
+                            visitas</small>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
-                        visitas</small>
-                </div>
-            </div>
 
-            <div class="entry card m-3">
-                <div class="card-body">
-                    <span class="badge badge-pill badge-primary">Informatica</span>
-                    <h6 class="card-title">
-                        <i class="fas fa-user-circle"></i> username3 | Hoy - 10:45
-                    </h6>
-                    <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
-                        veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                    <a href="#" class="btn btn-primary">Resolver</a>
+                <div class="entry card m-3">
+                    <div class="card-body">
+                        <span class="badge badge-pill badge-primary">Informatica</span>
+                        <h6 class="card-title">
+                            <i class="fas fa-user-circle"></i> username3 | Hoy - 10:45
+                        </h6>
+                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
+                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
+                        <a href="#" class="btn btn-primary">Resolver</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
+                            visitas</small>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
-                        visitas</small>
-                </div>
-            </div>
 
-            <div class="entry card m-3">
-                <div class="card-body">
-                    <span class="badge badge-pill badge-primary">Matematicas</span>
-                    <h6 class="card-title">
-                        <i class="fas fa-user-circle"></i> username4 | Ayer - 22:40
-                    </h6>
-                    <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
-                        veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                    <a href="#" class="btn btn-primary">Resolver</a>
+                <div class="entry card m-3">
+                    <div class="card-body">
+                        <span class="badge badge-pill badge-primary">Matematicas</span>
+                        <h6 class="card-title">
+                            <i class="fas fa-user-circle"></i> username4 | Ayer - 22:40
+                        </h6>
+                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
+                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
+                        <a href="#" class="btn btn-primary">Resolver</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
+                            visitas</small>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
-                        visitas</small>
-                </div>
-            </div>
 
-            <div class="entry card m-3">
-                <div class="card-body">
-                    <span class="badge badge-pill badge-primary">Economia</span>
-                    <h6 class="card-title">
-                        <i class="fas fa-user-circle"></i> username5 | 15/05/2019 - 10:45
-                    </h6>
-                    <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
-                        veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                    <a href="#" class="btn btn-primary">Resolver</a>
+                <div class="entry card m-3">
+                    <div class="card-body">
+                        <span class="badge badge-pill badge-primary">Economia</span>
+                        <h6 class="card-title">
+                            <i class="fas fa-user-circle"></i> username5 | 15/05/2019 - 10:45
+                        </h6>
+                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab sunt
+                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
+                        <a href="#" class="btn btn-primary">Resolver</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
+                            visitas</small>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i> 20
-                        visitas</small>
-                </div>
-            </div>
+            </section>
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
@@ -237,15 +267,10 @@
                 <div class="card-body p-3">
                     <h5 class="card-title text-center"><i class="fas fa-bars"></i> Opciones</h5>
                     <div class="btn-group-vertical btn-block">
-                        <a href="index.html" class="btn btn-outline-info">Pagina Principal</a>
-                        <a class="btn btn-outline-info">Ver repositorio de archivos</a>
-                        <a class="btn btn-outline-info">Cambiar a cuenta Premium</a>
-                    </div>
-                    <div class="input-group mt-3">
-                        <input type="text" class="form-control" placeholder="Palabra Clave" aria-label="Palabra Clave" aria-describedby="button-search">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-info" type="button" id="button-search"><i class="fas fa-search"></i></button>
-                        </div>
+                        <a href="main.html" class="btn btn-outline-info disabled">Pagina Principal</a>
+                        <a href="ask.html" class="btn btn-outline-info">Realizar una pregunta</a>
+                        <a href="repository.html" class="btn btn-outline-info">Ver repositorio de archivos</a>
+                        <a href="#" class="btn btn-outline-info">Cambiar a cuenta Premium</a>
                     </div>
                 </div>
             </div>
