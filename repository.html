@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a tabindex="-1" class="btn nav-link popover-dismiss  user-popover" role="button"
+                        <a tabindex="-1" class="btn nav-link popover-dismiss user-popover" role="button"
                             data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
                             <span style="font-size: 23px;">
                                 <i class="fas fa-user-circle"></i>
@@ -67,7 +67,7 @@
                 <div class="right-side">
                     <div class="overlay">
                         <div class="item text-center">
-                            <a href="upload-files.html">
+                            <a href="upload-files.html" style="text-decoration: none;">
                                 <span style="font-size: 48px; color: white">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                 </span>
@@ -114,6 +114,7 @@
                 </div>
             </section>
 
+            <!-- ARCHIVOS DEL REPOSITORIO -->
             <section class="repo-entries mt-5">
                 <div class="repo-entry card m-3">
                     <div class="card-body">
@@ -125,7 +126,10 @@
                             veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#view-file-modal"><i
                                 class="fas fa-search"></i> Ver</button>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Descargar</a>
+                        <button class="btn btn-primary popover-dismiss download" role="button" data-toggle="popover"
+                            data-trigger="focus" title="" data-content="No es usuario premium" data-placement="right">
+                            <i class="fas fa-download"></i> Descargar
+                        </button>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Subido por Elias Guere - 16/05/2019</small>
@@ -141,7 +145,10 @@
                             veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#view-file-modal"><i
                                 class="fas fa-search"></i> Ver</button>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Descargar</a>
+                        <button class="btn btn-primary popover-dismiss download" role="button" data-toggle="popover"
+                            data-trigger="focus" title="" data-content="No es usuario premium" data-placement="right">
+                            <i class="fas fa-download"></i> Descargar
+                        </button>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Subido por Elias Guere - 16/05/2019</small>
@@ -157,7 +164,10 @@
                             veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#view-file-modal"><i
                                 class="fas fa-search"></i> Ver</button>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Descargar</a>
+                        <button class="btn btn-primary popover-dismiss download" role="button" data-toggle="popover"
+                            data-trigger="focus" title="" data-content="No es usuario premium" data-placement="right">
+                            <i class="fas fa-download"></i> Descargar
+                        </button>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Subido por Elias Guere - 16/05/2019</small>
@@ -244,7 +254,8 @@
                             Ver repositorio de archivos</a>
                         <a href="index.html" class="btn btn-outline-info"><i class="fas fa-search"></i> SearchCloud -
                             Inicio</a>
-                        <a href="falta-pagina.html" class="btn btn-outline-info"><i class="fas fa-crown"></i> Cambiar a cuenta
+                        <a href="falta-pagina.html" class="btn btn-outline-info"><i class="fas fa-crown"></i> Cambiar a
+                            cuenta
                             Premium</a>
                     </div>
                 </div>
@@ -258,6 +269,7 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 
+    <!-- Popovers de la barra de navegacion -->
     <script type="text/javascript">
         $(document).ready(function () {
             $('.notification-popover').popover({
@@ -275,6 +287,14 @@
                 content: "<a href='#' class='text-center'>Ver Perfil</a> <br> <a href='index.html' class='text-center'>Cerrar sesion</a>",
                 html: true
             });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () {
+                $('[data-toggle="popover"]').popover()
+            })
         });
     </script>
 </body>
