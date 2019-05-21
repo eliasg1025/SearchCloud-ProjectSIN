@@ -94,3 +94,6 @@ body {
     }
 }
 
+.modal-body .row {
+    border-bottom: 1px solid rgb(222, 226, 230);
+}
