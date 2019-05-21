@@ -22,9 +22,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
         <div class="container">
             <a class="navbar-brand" href="main.html">
-                <img src="img/logo.png"
-                    class="image-responsive thumbnail" width="25" height="25" class="d-inline-block align-top"
-                    alt="logo">
+                <img src="img/logo.png" class="image-responsive thumbnail" width="25" height="25"
+                    class="d-inline-block align-top" alt="logo">
                 SearchCloud
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -34,14 +33,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a tabindex="0" class="btn nav-link popover-dismiss notification-popover" role="button"
+                            data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
                             <span style="font-size: 23px;">
                                 <i class="fas fa-bell"></i>
                             </span>
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">
+                        <a tabindex="-1" class="btn nav-link popover-dismiss  user-popover" role="button"
+                            data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
                             <span style="font-size: 23px;">
                                 <i class="fas fa-user-circle"></i>
                             </span>
@@ -63,9 +64,11 @@
             </div>
 
             <!-- FORM CONTAINER -->
-            <div class="ask-container"> <!-- register-right -->
+            <div class="ask-container">
+                <!-- register-right -->
                 <!-- FORM -->
-                <form action="" method="" class="ask-form" > <!-- register-form -->
+                <form action="" method="" class="ask-form">
+                    <!-- register-form -->
                     <div class="form-group">
                         <select class="form-control">
                             <option class="hidden" selected disabled>Elija el tema</option>
@@ -81,7 +84,8 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea class="form-control" name="ask" id="ask" cols="50" rows="10" placeholder="Escribe su pregunta"></textarea>
+                        <textarea class="form-control" name="ask" id="ask" cols="50" rows="10"
+                            placeholder="Escribe su pregunta"></textarea>
                     </div>
 
                     <div class="form-group row">
@@ -130,11 +134,16 @@
                 <div class="card-body p-3">
                     <h5 class="card-title text-center"><i class="fas fa-bars"></i> Opciones</h5>
                     <div class="btn-group-vertical btn-block">
-                        <a href="main.html" class="btn btn-outline-info"><i class="fas fa-home"></i> Pagina Principal</a>
-                        <a href="ask.html" class="btn btn-outline-info disabled"><i class="fas fa-question"></i> Realizar una pregunta</a>
-                        <a href="repository.html" class="btn btn-outline-info"><i class="fas fa-database"></i> Ver repositorio de archivos</a>
-                        <a href="index.html" class="btn btn-outline-info"><i class="fas fa-search"></i> SearchCloud - Inicio</a>
-                        <a href="#" class="btn btn-outline-info"><i class="fas fa-crown"></i> Cambiar a cuenta Premium</a>
+                        <a href="main.html" class="btn btn-outline-info"><i class="fas fa-home"></i> Pagina
+                            Principal</a>
+                        <a href="ask.html" class="btn btn-outline-info disabled"><i class="fas fa-question"></i>
+                            Realizar una pregunta</a>
+                        <a href="repository.html" class="btn btn-outline-info"><i class="fas fa-database"></i> Ver
+                            repositorio de archivos</a>
+                        <a href="index.html" class="btn btn-outline-info"><i class="fas fa-search"></i> SearchCloud -
+                            Inicio</a>
+                        <a href="#" class="btn btn-outline-info"><i class="fas fa-crown"></i> Cambiar a cuenta
+                            Premium</a>
                     </div>
                 </div>
             </div>
@@ -145,6 +154,26 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.notification-popover').popover({
+                title: "<h6 class='text-center'>Notifiaciones</em></h6>",
+                content: "<p> No hay notificaciones </p>",
+                html: true
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.user-popover').popover({
+                title: "<h6 class='text-center'>Hola <em>Pedrito</em></h6>",
+                content: "<a href='#' class='text-center'>Ver Perfil</a> <br> <a href='index.html' class='text-center'>Cerrar sesion</a>",
+                html: true
+            });
+        });
+    </script>
 </body>
 
 </html>

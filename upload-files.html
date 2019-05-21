@@ -33,14 +33,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a tabindex="0" class="btn nav-link popover-dismiss notification-popover" role="button"
+                            data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
                             <span style="font-size: 23px;">
                                 <i class="fas fa-bell"></i>
                             </span>
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">
+                        <a tabindex="-1" class="btn nav-link popover-dismiss  user-popover" role="button"
+                            data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
                             <span style="font-size: 23px;">
                                 <i class="fas fa-user-circle"></i>
                             </span>
@@ -152,6 +154,26 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.notification-popover').popover({
+                    title: "<h6 class='text-center'>Notifiaciones</em></h6>",
+                    content: "<p> No hay notificaciones </p>",
+                    html: true
+                });
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.user-popover').popover({
+                    title: "<h6 class='text-center'>Hola <em>Pedrito</em></h6>",
+                    content: "<a href='#' class='text-center'>Ver Perfil</a> <br> <a href='index.html' class='text-center'>Cerrar sesion</a>",
+                    html: true
+                });
+            });
+        </script>
 </body>
 
 </html>
