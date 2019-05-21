@@ -1,0 +1,21 @@
+body {
+    background: -webkit-linear-gradient(left, rgba(57, 49, 175, .9), rgba(0, 198, 255, .9));
+}
+
+.navbar-collapse .nav-link {
+    padding: 5px;
+}
+
+.layout-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text-container {
+    width: 100%;
+    padding-top: 10%;
+}
+
+.button-container {
+    width: 100%;
+}

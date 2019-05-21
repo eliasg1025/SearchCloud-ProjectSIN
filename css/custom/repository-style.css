@@ -46,52 +46,54 @@ body {
     margin: 30px auto auto 50px;
 }
 
-.ask-container {
-    background: #f8f9fa;
-    border-top-left-radius: 10% 50%;
-    border-bottom-left-radius: 10% 50%;
+.to-upload {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 300px;
+    max-width: 850px;
 }
 
-.ask-form {
-    padding: 5% 10%;
-    margin-top: 40px;
+.right-side {
+    width: 100%;
+    background: url(../../img/background-banner.jpg);
+    background-size: cover;
 }
 
-.btnRegister {
-    float: right;
-    margin-top: 10%;
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    background: #0062cc;
-    color: #fff;
-    font-weight: 600;
-    width: 50%;
-    cursor: pointer;
+.left-side {
+    width: 100%
 }
 
-@media screen and (min-width: 768px) {
-    .btnRegister {
-        margin-top: 25px;
-        max-width: 212px;
+.overlay {
+    background-image: linear-gradient( 177.7deg,  rgba(79,104,112,.7) 4.1%, rgba(150,198,214,.7) 93.9% );
+    height: 100%;
+}
+
+.item {
+    padding-top: 10%;
+}
+
+.left-side .card-body {
+    padding-top: 10%;
+}
+
+@media screen and (min-width: 576px) {
+    .left-side {
+        width: 50%;
+    }
+
+    .right-side {
+        width: 50%;
+    }
+
+    .item {
+        padding-top: 20%;
+    }
+    
+    .left-side .card-body {
+        padding-top: 20%;
     }
 }
 
-.upload > input {
-    display: none;
-}
-
-.upload i {
-    font-size: 30px;
-    cursor: pointer;
-}
-
-#insert-label {
-    display: block;
-    text-align: right;
-}
-
-#upload-image label {
-    display: block;
-    text-align: center;
+.modal-body .row {
+    border-bottom: 1px solid rgb(222, 226, 230);
 }
