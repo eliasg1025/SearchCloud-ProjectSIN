@@ -62,6 +62,7 @@
             <div class="title-container">
                 <h2 class="text-white">Respositorio de archivos</h2>
             </div>
+            
 
             <div class="container to-upload mt-4">
                 <div class="right-side">
@@ -229,15 +230,14 @@
         <!-- RIGHT SECTION -->
         <div class="right-section p-3">
             <div id="profile-resume" class="card p-3">
-                <div class="row">
-                    <div class="col-5">
+                <div class="row align-items-center">
+                    <div class="col-5 p-0">
                         <img src="img/user-default.png" alt="user-default" class="img-fuild rounded-circle">
-                        <p class="text-center mt-3">pedrito123</p>
                     </div>
-                    <div class="col">
+                    <div class="col-7">
                         <h4>Pedrito</h4>
                         <h6>Universidad de Piura</h6>
-                        <a href="falta-pagina.html" role="button" class="btn btn-outline-info">Ver Perfil</a>
+                        <a href="profile.html" role="button" class="btn btn-outline-info">Ver Perfil</a>
                     </div>
                 </div>
             </div>
@@ -284,7 +284,7 @@
         $(document).ready(function () {
             $('.user-popover').popover({
                 title: "<h6 class='text-center'>Hola <em>Pedrito</em></h6>",
-                content: "<a href='#' class='text-center'>Ver Perfil</a> <br> <a href='index.html' class='text-center'>Cerrar sesion</a>",
+                content: "<a href='profile.html' class='text-center'>Ver Perfil</a> <br> <a href='index.html' class='text-center'>Cerrar sesion</a>",
                 html: true
             });
         });
