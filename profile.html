@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SearchCloud | Perfil</title>
     <!-- ICON -->
@@ -22,27 +21,23 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
         <div class="container">
             <a class="navbar-brand" href="main.html">
-                <img src="img/logo.png" class="image-responsive thumbnail" width="25" height="25"
-                    class="d-inline-block align-top" alt="logo">
+                <img src="img/logo.png" class="image-responsive thumbnail" width="25" height="25" class="d-inline-block align-top" alt="logo">
                 SearchCloud
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a tabindex="0" class="btn nav-link popover-dismiss notification-popover" role="button"
-                            data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
+                        <a tabindex="0" class="btn nav-link popover-dismiss notification-popover" role="button" data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
                             <span style="font-size: 23px;">
                                 <i class="fas fa-bell"></i>
                             </span>
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a tabindex="-1" class="btn nav-link popover-dismiss  user-popover" role="button"
-                            data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
+                        <a tabindex="-1" class="btn nav-link popover-dismiss  user-popover" role="button" data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
                             <span style="font-size: 23px;">
                                 <i class="fas fa-user-circle"></i>
                             </span>
@@ -55,9 +50,75 @@
     <!-- END NAVBAR -->
 
     <!---------------------- LAYOUT ----------------------->
-    
-    <div class="layout-container p-3">
-        <h1 class="text-white">Perfil de usuario</h1>
+
+
+    <div class="layout-container">
+        <div class="left-section p-3">
+            <div class="card">
+                <img src="https://i.pinimg.com/originals/51/dc/0b/51dc0bd8377c89db379af700e9a7a1a2.jpg" alt="" class="card-img-top img-fluid">
+                <div class="card-body">
+                    <h3 class="card-title name-user">
+                        Elias Guere
+                    </h3>
+                    <h3 class="card-title">
+                        <small class="text-muted">Universidad de Piura</small>
+                    </h3>
+                    <div class="container text-center mt-3">
+                        <a href="falta-pagina.html" class="btn btn-secondary">Editar perfil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rigth-section p-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">
+                        Perfil de usuario
+                    </h2>
+                    <br>
+                    <!-- Informacion personal -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Informacion personal</h4>
+                            <br>
+                            <div class="row">
+                                <div class="card-text col">
+                                    <p><span style="font-weight: bold;">Nombre y Apellidos:</span> Elias Guere Canchucaja</p>
+                                    <p><span style="font-weight: bold;">Centro de estudios:</span> Universidad de Piura</p>
+                                    <p><span style="font-weight: bold;">Correo electronico:</span> eliasguere1025@gmail.com</p>
+                                </div>
+                                <div class="card-text col">
+                                    <p><span style="font-weight: bold;">Fecha de naciminto:</span> 1997-06-25</p>
+                                    <p><span style="font-weight: bold;">Numero telefonico:</span> 123456789</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!--  -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Datos de la cuenta</h4>
+                            <br>
+                            <div class="row">
+                                <div class="card-text col">
+                                    <p><span style="font-weight: bold;">Usuario Premium:</span> SI</p>
+                                    <p><span style="font-weight: bold;">Cantidad de preguntas realizadas:</span> 4</p>
+                                    <p><span style="font-weight: bold;">Cantidad de respuestas:</span> 5</p>
+                                </div>
+                                <div class="card-text col">
+                                    <p><span style="font-weight: bold;">Archivos subidos:</span> 2</p>
+                                    <p><a href="falta-pagina.html">Cambiar a premium</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-conainer p-4">
+                        <a class="btn btn-info btn-lg" href="main.html" role="button">Volver al Foro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -71,7 +132,7 @@
         $(document).ready(showSubject);
 
         function showSubject() {
-            $(".list-group").on("click", function () {
+            $(".list-group").on("click", function() {
                 var active = $(".active").text();
                 $("#subjects-button").text(active);
             });
@@ -79,7 +140,7 @@
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.notification-popover').popover({
                 title: "<h6 class='text-center'>Notifiaciones</em></h6>",
                 content: "<p> No hay notificaciones </p>",
@@ -89,7 +150,7 @@
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.user-popover').popover({
                 title: "<h6 class='text-center'>Hola <em>Pedrito</em></h6>",
                 content: "<a href='profile.html' class='text-center'>Ver Perfil</a> <br> <a href='index.html' class='text-center'>Cerrar sesion</a>",
