@@ -42,31 +42,39 @@ body {
     }
 }
 
-/* Left section styles */
-
-.question-image {
-    display: block;
-    margin: auto;
-    width: 60%;
-    height: auto;
-    border: solid rgb(195, 209, 221) 10px;
-    padding: 5px;
+.title-container {
+    margin: 30px auto auto 50px;
 }
 
-.anwser-section {
-    background-color: rgba(255, 255, 255, 0.3);
+.ask-container {
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
 }
 
-.anwser {
-    max-width: 100%;
+.ask-form {
+    padding: 5% 10%;
+    margin-top: 40px;
 }
 
-.file-include {
-    color: rgb(102, 102, 102);
+.btnRegister {
     float: right;
-    padding: 4px;
-    border: solid 2px rgb(102, 102, 102);
-    border-radius: 5px;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .btnRegister {
+        margin-top: 25px;
+        max-width: 212px;
+    }
 }
 
 .upload > input {
@@ -76,4 +84,14 @@ body {
 .upload i {
     font-size: 30px;
     cursor: pointer;
+}
+
+#insert-label {
+    display: block;
+    text-align: right;
+}
+
+#upload-image label {
+    display: block;
+    text-align: center;
 }
