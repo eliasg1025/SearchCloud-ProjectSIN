@@ -7,47 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SearchCloud | Perfil</title>
     <!-- ICON -->
-    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="icon" type="image/png" href="../assets/img/logo.png" />
     <!-- BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="fa/css/all.min.css">
+    <link rel="stylesheet" href="../assets/fa/css/all.min.css">
     <!-- CUSTOM CSS (css personalizado) -->
-    <link rel="stylesheet" href="css/custom/profile-style.css">
+    <link rel="stylesheet" href="../assets/css/custom/profile-style.css">
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="main.html">
-                <img src="img/logo.png" class="image-responsive thumbnail" width="25" height="25" class="d-inline-block align-top" alt="logo">
-                SearchCloud
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a tabindex="0" class="btn nav-link popover-dismiss notification-popover" role="button" data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
-                            <span style="font-size: 23px;">
-                                <i class="fas fa-bell"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a tabindex="-1" class="btn nav-link popover-dismiss  user-popover" role="button" data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
-                            <span style="font-size: 23px;">
-                                <i class="fas fa-user-circle"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- END NAVBAR -->
+    <?php require "../partials/user-navbar.php" ?>
 
     <!---------------------- LAYOUT ----------------------->
 
@@ -64,7 +34,7 @@
                         <small class="text-muted">Universidad de Piura</small>
                     </h3>
                     <div class="container text-center mt-3">
-                        <a href="falta-pagina.html" class="btn btn-secondary">Editar perfil</a>
+                        <a href="falta-pagina.php" class="btn btn-secondary">Editar perfil</a>
                     </div>
                 </div>
             </div>
@@ -108,13 +78,13 @@
                                 </div>
                                 <div class="card-text col">
                                     <p><span style="font-weight: bold;">Archivos subidos:</span> 2</p>
-                                    <p><a href="falta-pagina.html">Cambiar a premium</a></p>
+                                    <p><a href="index.php">Cambiar a premium</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="btn-conainer p-4">
-                        <a class="btn btn-info btn-lg" href="main.html" role="button">Volver al Foro</a>
+                        <a class="btn btn-info btn-lg" href="index.php" role="button">Volver al Foro</a>
                     </div>
                 </div>
             </div>
@@ -123,9 +93,9 @@
 
 
     <!-- BOOTSTRAP JS -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- Cambiar a la clase .active un elemento del .list-group -->
     <script type="text/javascript">

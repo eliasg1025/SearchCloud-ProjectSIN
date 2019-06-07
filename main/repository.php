@@ -8,51 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SearchCloud | Repositorio</title>
     <!-- ICON -->
-    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="icon" type="image/png" href="../assets/img/logo.png" />
     <!-- BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="fa/css/all.min.css">
+    <link rel="stylesheet" href="../assets/fa/css/all.min.css">
     <!-- CUSTOM CSS (css personalizado) -->
-    <link rel="stylesheet" href="css/custom/repository-style.css">
+    <link rel="stylesheet" href="../assets/css/custom/repository-style.css">
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="main.html">
-                <img src="img/logo.png" class="image-responsive thumbnail" width="25" height="25"
-                    class="d-inline-block align-top" alt="logo">
-                SearchCloud
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a tabindex="0" class="btn nav-link popover-dismiss notification-popover" role="button"
-                            data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
-                            <span style="font-size: 23px;">
-                                <i class="fas fa-bell"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a tabindex="-1" class="btn nav-link popover-dismiss user-popover" role="button"
-                            data-toggle="popover" data-trigger="focus" title="" data-content="" data-placement="bottom">
-                            <span style="font-size: 23px;">
-                                <i class="fas fa-user-circle"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- END NAVBAR -->
+    <?php require "../partials/user-navbar.php" ?>
 
     <!-- LAYOUT -->
     <div class="layout-container">
@@ -227,47 +193,13 @@
             </nav>
         </div>
 
-        <!-- RIGHT SECTION -->
-        <div class="right-section p-3">
-            <div id="profile-resume" class="card p-3">
-                <div class="row align-items-center">
-                    <div class="col-5 p-0">
-                        <img src="img/user-default.png" alt="user-default" class="img-fuild rounded-circle">
-                    </div>
-                    <div class="col-7">
-                        <h4>Pedrito</h4>
-                        <h6>Universidad de Piura</h6>
-                        <a href="profile.html" role="button" class="btn btn-outline-info">Ver Perfil</a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="options" class="card">
-                <div class="card-body p-3">
-                    <h5 class="card-title text-center"><i class="fas fa-bars"></i> Opciones</h5>
-                    <div class="btn-group-vertical btn-block">
-                        <a href="main.html" class="btn btn-outline-info"><i class="fas fa-home"></i> Pagina
-                            Principal</a>
-                        <a href="question.html" class="btn btn-outline-info"><i class="fas fa-question"></i> Realizar una
-                            pregunta</a>
-                        <a href="repository.html" class="btn btn-outline-info disabled"><i class="fas fa-database"></i>
-                            Ver repositorio de archivos</a>
-                        <a href="index.html" class="btn btn-outline-info"><i class="fas fa-search"></i> SearchCloud -
-                            Inicio</a>
-                        <a href="falta-pagina.html" class="btn btn-outline-info"><i class="fas fa-crown"></i> Cambiar a
-                            cuenta
-                            Premium</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        <?php require "../partials/right-section.php" ?>
     </div>
 
     <!-- BOOTSTRAP JS -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- Popovers de la barra de navegacion -->
     <script type="text/javascript">

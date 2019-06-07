@@ -7,48 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SearchCloud</title>
     <!-- ICON -->
-    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
     <!-- BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="fa/css/all.min.css">
+    <link rel="stylesheet" href="assets/fa/css/all.min.css">
     <!-- CUSTOM CSS (css personalizado) -->
-    <link rel="stylesheet" href="css/custom/index-style.css">
-    <link rel="stylesheet" href="css/custom/carosuel-style.css">
+    <link rel="stylesheet" href="assets/css/custom/index-style.css">
+    <link rel="stylesheet" href="assets/css/custom/carosuel-style.css">
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="img/logo.png"
-                    class="image-responsive thumbnail" width="25" height="25" class="d-inline-block align-top"
-                    alt="logo">
-                SearchCloud
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Ingresar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.html">Registrarse</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- END NAVBAR -->
+    <?php require "partials/nouser-navbar.php" ?>
 
     <!-- HEADER -->
     <header class="main-header">
@@ -74,7 +44,7 @@
                   <div class="d-flex justify-content-center h-100">
                     <div class="searchbar">
                         <input class="search_input" type="text" name="" placeholder="Ingresa palabra clave">
-                        <a href="main.html" class="search_icon"><i class="fas fa-search"></i></a>
+                        <a href="main/index.html?user=null" class="search_icon"><i class="fas fa-search"></i></a>
                     </div>
                   </div>
                 </div>
@@ -91,64 +61,64 @@
 
             <div class="thumbnail-carousel slider">
                 <div class="slide">
-                    <a href="main.html">
-                        <img class="card-img-top img-fluid" src="img/carousel-icons/032-mathematics.png">
+                    <a href="main/index.html?user=null">
+                        <img class="card-img-top img-fluid" src="assets/img/carousel-icons/032-mathematics.png">
                         <div class="card-block">
                             <h4 class="card-title text-center">Matematicas</h4>
                         </div>
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="main.html">
-                        <img src="img/carousel-icons/008-chemistry.png">
+                    <a href="main/index.html?user=null">
+                        <img src="assets/img/carousel-icons/008-chemistry.png">
                         <div class="card-block">
                             <h4 class="card-title text-center">Quimica</h4>
                         </div>
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="main.html">
-                        <img src="img/carousel-icons/006-biology.png">
+                    <a href="main/index.html?user=null">
+                        <img src="assets/img/carousel-icons/006-biology.png">
                         <div class="card-block">
                             <h4 class="card-title text-center">Biologia</h4>
                         </div>
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="main.html">
-                        <img src="img/carousel-icons/012-physics.png">
+                    <a href="main/index.html?user=null">
+                        <img src="assets/img/carousel-icons/012-physics.png">
                         <div class="card-block">
                             <h4 class="card-title text-center">Fisica</h4>
                         </div>
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="main.html">
-                        <img src="img/carousel-icons/036-engineering.png">
+                    <a href="main/index.html?user=null">
+                        <img src="assets/img/carousel-icons/036-engineering.png">
                         <div class="card-block">
                             <h4 class="card-title text-center">Ingenieria</h4>
                         </div>
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="main.html">
-                        <img src="img/carousel-icons/007-law.png">
+                    <a href="main/index.html?user=null">
+                        <img src="assets/img/carousel-icons/007-law.png">
                         <div class="card-block">
                             <h4 class="card-title text-center">Derecho</h4>
                         </div>
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="main.html">
-                        <img src="img/carousel-icons/024-computer.png">
+                    <a href="main/index.html?user=null">
+                        <img src="assets/img/carousel-icons/024-computer.png">
                         <div class="card-block">
                             <h4 class="card-title text-center">Informatica</h4>
                         </div>
                     </a>
                 </div>
                 <div class="slide">
-                    <a href="main.html">
-                        <img src="img/carousel-icons/016-economy.png">
+                    <a href="main/index.html?user=null">
+                        <img src="assets/img/carousel-icons/016-economy.png">
                         <div class="card-block">
                             <h4 class="card-title text-center">Economia</h4>
                         </div>
@@ -164,18 +134,18 @@
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 <div class="col-lg-6 order-lg-2 text-white showcase-img"
-                    style="background-image: url('img/showcase1.jpg');"></div>
+                    style="background-image: url('assets/img/showcase1.jpg');"></div>
                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                     <h2>Comparte y Envia</h2>
                     <p class="lead mb-0">Tus dudas, consultas, problemas ó cualquier inquietud acerca de cualquier tema académico que necesitas ó desees saber</p>
                     <div class="btn-conainer p-4 text-center">
-                        <a class="btn btn-info btn-block btn-lg" href="main.html" role="button">Ver Foro</a>
+                        <a class="btn btn-info btn-block btn-lg" href="main/index.html?user=null" role="button">Ver Foro</a>
                     </div>
 
                 </div>
             </div>
             <div class="row no-gutters">
-                <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/showcase2.jpg');"></div>
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/showcase2.jpg');"></div>
                 <div class="col-lg-6 my-auto showcase-text">
                     <h2>Sube y Descarga</h2>
                     <p class="lead mb-0">Documentos, imágenes, pdf y artículos que resuelvan lo que estes buscando</p>
@@ -186,14 +156,14 @@
     <!-- END IMAGE SHOWCASES -->
 
     <!-- BOOTSTRAP JS -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
     <!-- Libreria "Slick-carousel" necesaria para que funcione el carrusel de imagenes -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
     <!-- CUSTOM JS (Javascript personalizado)-->
-    <script src="js/scripts/carousel.js"></script> <!-- Este JS incluye los datos personalizados para que funcione el carrusel -->
-    <script src="js/scripts/navbar.js"></script>
+    <script src="assets/js/scripts/carousel.js"></script> <!-- Este JS incluye los datos personalizados para que funcione el carrusel -->
+    <script src="assets/js/scripts/navbar.js"></script>
 </body>
 
 </html>

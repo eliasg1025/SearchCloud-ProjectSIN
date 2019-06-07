@@ -8,47 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SearchCloud | Registro</title>
     <!-- ICON -->
-    <link rel="icon" type="image/png" href="img/logo.png" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
     <!-- BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="fa/css/all.min.css">
+    <link rel="stylesheet" href="assets/fa/css/all.min.css">
     <!-- CUSTOM CSS (css personalizado) -->
-    <link rel="stylesheet" href="css/custom/register-style.css">
+    <link rel="stylesheet" href="assets/css/custom/register-style.css">
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="img/logo.png" class="image-responsive thumbnail" width="25" height="25"
-                    class="d-inline-block align-top" alt="logo">
-                SearchCloud
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Ingresar</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="register.html">
-                            Registrarse
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- END NAVBAR -->
+    <?php require "partials/nouser-navbar.php" ?>
 
     <!-- REGISTER SECTION -->
     <div class="container register">
@@ -57,7 +27,7 @@
                 <img src="img/animation-book.png" alt="" />
                 <h3>Crea una cuenta</h3>
                 <p>¿Ya estas registrado?</p>
-                <a href="login.html" class="btn">
+                <a href="login.php" class="btn">
                     Ingresa
                 </a>
                 <br />
@@ -272,9 +242,9 @@
     </div>
 
     <!-- BOOTSTRAP JS -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- Javascript para confirmar la contraseña de mentiritas -->
     <script type="text/javascript">
