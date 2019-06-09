@@ -103,14 +103,14 @@ if (isset($_SESSION['idUsuario'])) {
                     </button>
                 </div>
             <?php endif;?>
-            
+
             <!-- WELCOME SECTION-->
             <div class="card text-center">
                 <div class="card-header">
                     <span style="font-size: 23px;">
                         <i class="fas fa-door-open"></i>
                     </span>
-                    Bienvenido <span style="font-weight: bold;"><?=$usuario->getNombre()?></span>
+                    Bienvenido <span id="nombre-usuario" style="font-weight: bold;"><?=$usuario->getNombre()?></span>
                 </div>
                 <div class="card-body">
                     <span id="animation-icon" style="font-size: 30px;">
