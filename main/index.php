@@ -6,30 +6,13 @@ require "../database.php";
 require "../models/usuario.php";
 
 if (isset($_SESSION['idUsuario'])) {
-    // $records = $conn->prepare('SELECT * FROM `modelosin`.`usuario` WHERE `idUsuario`=:idUsuario');
-    // $records->bindParam(':idUsuario', $_SESSION['idUsuario']);
-    // $records->execute();
-    // $results = $records->fetch(PDO::FETCH_ASSOC);
-    // $user = null;
-    // if (count($results) > 0) {
-    //   $user = $results;
-    // }
+
     $usuario = new Usuario($_SESSION["idUsuario"]);
 
 } else {
     header("Location: ../login.php");
 }
 
-?>
-
-<?php
-// $sqlUniv = "SELECT * FROM `modelosin`.`universidad` WHERE `idUniversidad`=:Universidad_idUniversidad";
-//
-// $registroUniv = $conn->prepare($sqlUniv);
-// $registroUniv->bindParam(":Universidad_idUniversidad", $user["Universidad_idUniversidad"]);
-// $registroUniv->execute();
-// $resultsUniv = $registroUniv->fetch(PDO::FETCH_ASSOC);
-// $nombreUniversidad = $resultsUniv["nombre"];
 ?>
 
 <!DOCTYPE html>
