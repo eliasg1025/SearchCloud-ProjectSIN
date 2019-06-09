@@ -250,25 +250,9 @@
         }
     </script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.notification-popover').popover({
-                title: "<h6 class='text-center'>Notifiaciones</em></h6>",
-                content: "<p> No hay notificaciones </p>",
-                html: true
-            });
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.user-popover').popover({
-                title: "<h6 class='text-center'>Hola <em>Pedrito</em></h6>",
-                content: "<a href='profile.html' class='text-center'>Ver Perfil</a> <br> <a href='../logout.php' class='text-center'>Cerrar sesion</a>",
-                html: true
-            });
-        });
-    </script>
+    <!-- Popovers -->
+    <script type="text/javascript" src="../assets/js/scripts/notification-popover.js"></script>
+    <script type="text/javascript" src="../assets/js/scripts/profile-popover.js"></script>
 
 </body>
 
