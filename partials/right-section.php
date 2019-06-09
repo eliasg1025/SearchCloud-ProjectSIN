@@ -8,8 +8,8 @@
                 <img src="../assets/img/user-default.png" alt="user-default" class="img-fuild rounded-circle">
             </div>
             <div class="col-7">
-                <h4>Pedrito</h4>
-                <h6>Universidad de Piura</h6>
+                <h4><?=$usuario->getNombre()?></h4>
+                <h6><?=$usuario->getNombreUniversidad()?></h6>
                 <a href="profile.php" role="button" class="btn btn-outline-info">Ver Perfil</a>
             </div>
         </div>

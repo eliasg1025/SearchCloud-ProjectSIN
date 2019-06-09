@@ -1,3 +1,37 @@
+<?php
+
+session_start();
+
+require "../database.php";
+require "../models/usuario.php";
+
+if (isset($_SESSION['idUsuario'])) {
+    // $records = $conn->prepare('SELECT * FROM `modelosin`.`usuario` WHERE `idUsuario`=:idUsuario');
+    // $records->bindParam(':idUsuario', $_SESSION['idUsuario']);
+    // $records->execute();
+    // $results = $records->fetch(PDO::FETCH_ASSOC);
+    // $user = null;
+    // if (count($results) > 0) {
+    //   $user = $results;
+    // }
+    $usuario = new Usuario($_SESSION["idUsuario"]);
+
+} else {
+    header("Location: ../login.php");
+}
+
+?>
+
+<?php
+// $sqlUniv = "SELECT * FROM `modelosin`.`universidad` WHERE `idUniversidad`=:Universidad_idUniversidad";
+//
+// $registroUniv = $conn->prepare($sqlUniv);
+// $registroUniv->bindParam(":Universidad_idUniversidad", $user["Universidad_idUniversidad"]);
+// $registroUniv->execute();
+// $resultsUniv = $registroUniv->fetch(PDO::FETCH_ASSOC);
+// $nombreUniversidad = $resultsUniv["nombre"];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -22,6 +56,7 @@
 
     <!---------------------- LAYOUT ----------------------->
     <div class="layout-container">
+
         <!-- LEFT SECTION -->
         <div class="left-section p-3">
             <button id="subjects-button" class="btn btn btn-outline-light btn-block" type="button"
@@ -52,13 +87,30 @@
         </div>
         <!-- MIDDLE SECTION  -->
         <div class="middle-section p-3">
+
+            <?php if($usuario->esPremium()):?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Usted <strong>SI</strong> es usuario premium.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php else:?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    Usted aun <strong>NO</strong> es usuario premium.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php endif;?>
+            
             <!-- WELCOME SECTION-->
             <div class="card text-center">
                 <div class="card-header">
                     <span style="font-size: 23px;">
                         <i class="fas fa-door-open"></i>
                     </span>
-                    Bienvenido <span style="font-weight: bold;">Username</span>
+                    Bienvenido <span style="font-weight: bold;"><?=$usuario->getNombre()?></span>
                 </div>
                 <div class="card-body">
                     <span id="animation-icon" style="font-size: 30px;">

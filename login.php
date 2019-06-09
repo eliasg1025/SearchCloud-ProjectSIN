@@ -2,7 +2,7 @@
     session_start();
 
     if (isset($_SESSION['idUsuario'])) {
-        header('Location: /Projects/SearchCloud-ProjectSIN/index.php');
+        header('Location: /Projects/SearchCloud-ProjectSIN/main/index.php');
     }
 
     require "database.php";
@@ -14,7 +14,7 @@
         $results = $records->fetch(PDO::FETCH_ASSOC);
         $message = '';
         if (count($results) > 0 && $results["password"]==$_POST["password"]) {
-            $_SESSION['user_id'] = $results['idUsuario'];
+            $_SESSION['idUsuario'] = $results['idUsuario'];
             header("Location: /Projects/SearchCloud-ProjectSIN/main/index.php");
         } else {
             $message = 'Sorry, Email o contraseña incorrectos';
