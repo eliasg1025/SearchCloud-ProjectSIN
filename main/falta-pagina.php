@@ -23,7 +23,7 @@
     <!-- LAYOUT -->
     <div class="layout-container text-white">
         <div class="text-container text-center">
-            <h2>Lo siento</h2> 
+            <h2>Lo siento</h2>
             <h2>Somos flojos y esta pagina todavia no existe</h2>
             <span style="font-size: 100px;">
                 <i class="fas fa-sad-tear"></i>
@@ -54,7 +54,7 @@
         $(document).ready(function () {
             $('.user-popover').popover({
                 title: "<h6 class='text-center'>Hola <em>Pedrito</em></h6>",
-                content: "<a href='#' class='text-center'>Ver Perfil</a> <br> <a href='index.html' class='text-center'>Cerrar sesion</a>",
+                content: "<a href='#' class='text-center'>Ver Perfil</a> <br> <a href='../logout.php' class='text-center'>Cerrar sesion</a>",
                 html: true
             });
         });

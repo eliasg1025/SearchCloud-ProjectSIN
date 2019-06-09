@@ -28,7 +28,7 @@
             <div class="title-container">
                 <h2 class="text-white">Respositorio de archivos</h2>
             </div>
-            
+
 
             <div class="container to-upload mt-4">
                 <div class="right-side">
@@ -216,7 +216,7 @@
         $(document).ready(function () {
             $('.user-popover').popover({
                 title: "<h6 class='text-center'>Hola <em>Pedrito</em></h6>",
-                content: "<a href='profile.html' class='text-center'>Ver Perfil</a> <br> <a href='index.html' class='text-center'>Cerrar sesion</a>",
+                content: "<a href='profile.html' class='text-center'>Ver Perfil</a> <br> <a href='../logout.php' class='text-center'>Cerrar sesion</a>",
                 html: true
             });
         });

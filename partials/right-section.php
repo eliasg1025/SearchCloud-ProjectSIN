@@ -28,7 +28,7 @@
                     repositorio de archivos</a>
                 <button class="btn btn-outline-info" data-toggle="modal" data-target="#premium-user-modal"><i
                         class="fas fa-crown"></i> Cambiar a cuenta Premium</button>
-                <a href="../index.php" class="btn btn-outline-info"><i class="fas fa-sign-out-alt"></i> CERRAR SESION</a>
+                <a href="../logout.php" class="btn btn-outline-info"><i class="fas fa-sign-out-alt"></i> CERRAR SESION</a>
             </div>
         </div>
     </div>
