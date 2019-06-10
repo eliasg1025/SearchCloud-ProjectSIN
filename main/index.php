@@ -112,10 +112,9 @@ if (isset($_SESSION['idUsuario'])) {
                         Ordenar por:
                     </label>
                     <select id="entries-filter" class="form-control col-sm-6">
-                        <option class="hidden" selected>Mas relevantes</option>
-                        <option value="">Mas vistas</option>
-                        <option value="">Mas recientes</option>
+                        <option class="hidden" selected>Mas recientes</option>
                         <option value="">Mas antiguas</option>
+                        <option value="">Mas relevantes</option>
                     </select>
                 </div>
                 <div class="container mt-3 row">

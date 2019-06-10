@@ -4,11 +4,12 @@
     $message = "";
     $type = "";
 
-    if (isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["telefono"])) {
-
+    if (isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["telefono"]))
+    {
+        $conexion = abrirConexion();
         // Preparando la consulta
         $sql = "INSERT INTO `modelosin`.`usuario` (`nombre`, `apellido`, `email`, `telefono`, `password`, `fechaNacimiento`, `Universidad_idUniversidad`, `Genero_idGenero`) VALUES (:nombre, :apellido, :email, :telefono, :pass, :fechaNacimiento, :idUniversidad, :idGenero)";
-        $stmt = $conn->prepare($sql);
+        $stmt = $conexion->prepare($sql);
 
         // Vinculando parametros
         $stmt->bindParam(":nombre", $_POST["nombre"]);
@@ -32,6 +33,7 @@
 ?>
 
 <?php
+    $conn = abrirConexion();
     $sqlUniv = "SELECT `idUniversidad`, `nombre` FROM `modelosin`.`universidad`";
     $registrosUniv = $conn->prepare($sqlUniv);
     $registrosUniv->execute();

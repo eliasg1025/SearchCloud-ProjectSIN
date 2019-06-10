@@ -50,7 +50,7 @@ if (isset($_SESSION['idUsuario'])) {
                 <div class="right-side">
                     <div class="overlay">
                         <div class="item text-center">
-                            <a href="upload-files.html" style="text-decoration: none;">
+                            <a href="upload-files.php" style="text-decoration: none;">
                                 <span style="font-size: 48px; color: white">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                 </span>

@@ -30,7 +30,7 @@ if (isset($_SESSION['idUsuario'])) {
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="../assets/fa/css/all.min.css">
     <!-- CUSTOM CSS (css personalizado) -->
-    <link rel="stylesheet" href="../assets/css/custom/ask-style.css">
+    <link rel="stylesheet" href="../assets/css/custom/upload-files-style.css">
 </head>
 
 <body>

@@ -2,7 +2,7 @@
 
 session_start();
 
-require "../database.php";
+require_once "../database.php";
 require "../models/usuario.php";
 
 if (isset($_SESSION['idUsuario'])) {
@@ -44,10 +44,10 @@ if (isset($_SESSION['idUsuario'])) {
                 <img src="https://i.pinimg.com/originals/51/dc/0b/51dc0bd8377c89db379af700e9a7a1a2.jpg" alt="" class="card-img-top img-fluid">
                 <div class="card-body">
                     <h3 class="card-title name-user">
-                        Elias Guere
+                        <?=$usuario->getNombre()?> <?=$usuario->getApellido()?>
                     </h3>
                     <h3 class="card-title">
-                        <small class="text-muted">Universidad de Piura</small>
+                        <small class="text-muted"><?=$usuario->getNombreUniversidad()?></small>
                     </h3>
                     <div class="container text-center mt-3">
                         <a href="falta-pagina.php" class="btn btn-secondary">Editar perfil</a>
@@ -69,13 +69,13 @@ if (isset($_SESSION['idUsuario'])) {
                             <br>
                             <div class="row">
                                 <div class="card-text col">
-                                    <p><span style="font-weight: bold;">Nombre y Apellidos:</span> Elias Guere Canchucaja</p>
-                                    <p><span style="font-weight: bold;">Centro de estudios:</span> Universidad de Piura</p>
-                                    <p><span style="font-weight: bold;">Correo electronico:</span> eliasguere1025@gmail.com</p>
+                                    <p><span style="font-weight: bold;">Nombre y Apellidos:</span> <?=$usuario->getNombre()?> <?=$usuario->getApellido()?></p>
+                                    <p><span style="font-weight: bold;">Centro de estudios:</span> <?=$usuario->getNombreUniversidad()?></p>
+                                    <p><span style="font-weight: bold;">Correo electronico:</span> <?=$usuario->getEmail()?></p>
                                 </div>
                                 <div class="card-text col">
-                                    <p><span style="font-weight: bold;">Fecha de naciminto:</span> 1997-06-25</p>
-                                    <p><span style="font-weight: bold;">Numero telefonico:</span> 123456789</p>
+                                    <p><span style="font-weight: bold;">Fecha de naciminto:</span> <?=$usuario->getFechaNacimiento()?></p>
+                                    <p><span style="font-weight: bold;">Numero telefonico:</span> <?=$usuario->getTelefono()?></p>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +88,14 @@ if (isset($_SESSION['idUsuario'])) {
                             <br>
                             <div class="row">
                                 <div class="card-text col">
-                                    <p><span style="font-weight: bold;">Usuario Premium:</span> SI</p>
+                                    <p>
+                                        <span style="font-weight: bold;">Usuario Premium:</span>
+                                        <?php if($usuario->esPremium()): ?>
+                                            SI
+                                        <?php else: ?>
+                                            NO
+                                        <?php endif; ?>
+                                    </p>
                                     <p><span style="font-weight: bold;">Cantidad de preguntas realizadas:</span> 4</p>
                                     <p><span style="font-weight: bold;">Cantidad de respuestas:</span> 5</p>
                                 </div>

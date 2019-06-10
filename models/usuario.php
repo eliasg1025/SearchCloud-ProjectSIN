@@ -6,11 +6,13 @@
 class Usuario
 {
     private $datosUsuario;
+    private $conexion;
 
     public function __construct($idUsuario)
     {
-        require "../database.php";
-        $records = $conn->prepare('SELECT * FROM `modelosin`.`usuario` WHERE `idUsuario`=:idUsuario');
+        $this->conexion = abrirConexion();
+
+        $records = $this->conexion->prepare('SELECT * FROM `modelosin`.`usuario` WHERE `idUsuario`=:idUsuario');
         $records->bindParam(':idUsuario', $idUsuario);
         $records->execute();
         $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -52,12 +54,13 @@ class Usuario
 
     public function getNombreUniversidad()
     {
-        require "../database.php";
         $sqlUniv = "SELECT * FROM `modelosin`.`universidad` WHERE `idUniversidad`=:Universidad_idUniversidad";
 
-        $registroUniv = $conn->prepare($sqlUniv);
+        $registroUniv = $this->conexion->prepare($sqlUniv);
         $registroUniv->bindParam(":Universidad_idUniversidad", $this->datosUsuario["Universidad_idUniversidad"]);
         $registroUniv->execute();
+
+        // Retorna una array asociativo con los resultados
         $resultsUniv = $registroUniv->fetch(PDO::FETCH_ASSOC);
         $nombreUniversidad = $resultsUniv["nombre"];
 

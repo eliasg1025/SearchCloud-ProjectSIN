@@ -1,22 +1,31 @@
 <?php
     session_start();
 
-    if (isset($_SESSION['idUsuario'])) {
+    if (isset($_SESSION['idUsuario']))
+    {
         header('Location: /Projects/SearchCloud-ProjectSIN/main/index.php');
     }
 
-    require "database.php";
+    require_once "database.php";
+    $conexion = abrirConexion();
 
-    if (!empty($_POST['email']) && !empty($_POST['password'])) {
-        $records = $conn->prepare('SELECT `idUsuario`, `email`, `password` FROM `modelosin`.`usuario` WHERE `email` = :email;');
+    if (!empty($_POST['email']) && !empty($_POST['password']))
+    {
+        $records = $conexion->prepare('SELECT `idUsuario`, `email`, `password` FROM `modelosin`.`usuario` WHERE `email` = :email;');
         $records->bindParam(':email', $_POST['email']);
         $records->execute();
         $results = $records->fetch(PDO::FETCH_ASSOC);
+
+        // Mensaje en caso haya fallado la conexion
         $message = '';
-        if (count($results) > 0 && $results["password"]==$_POST["password"]) {
+
+        if (count($results) > 0 && $results["password"]==$_POST["password"])
+        {
             $_SESSION['idUsuario'] = $results['idUsuario'];
             header("Location: /Projects/SearchCloud-ProjectSIN/main/index.php");
-        } else {
+        }
+        else
+        {
             $message = 'Sorry, Email o contraseña incorrectos';
         }
     }
