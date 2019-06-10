@@ -1,18 +1,27 @@
 <?php
+    session_start();
 
-session_start();
+    require "../database.php";
+    require "../models/admin-usuario.php";
+    require "../models/admin-post.php";
 
-require "../database.php";
-require "../models/usuario.php";
+    $conexion = abrirConexion();
+?>
 
-if (isset($_SESSION['idUsuario'])) {
+<?php
+    if (isset($_SESSION['idUsuario'])) {
 
-    $usuario = new Usuario($_SESSION["idUsuario"]);
+        $usuario = new Usuario($conexion, $_SESSION["idUsuario"]);
 
-} else {
-    header("Location: ../login.php");
-}
+    } else {
+        header("Location: ../login.php");
+    }
+?>
 
+<?php
+    $admin = new AdminPost($conexion);
+
+    $postEntries = $admin->getPostByDateDESC();
 ?>
 
 <!DOCTYPE html>
@@ -135,119 +144,26 @@ if (isset($_SESSION['idUsuario'])) {
 
             <!-- ENTRIES -->
             <section class="entries">
-                <div class="entry card m-3">
-                    <div class="card-body">
-                        <span class="badge badge-pill badge-primary">Matematicas</span>
-                        <h6 class="card-title">
-                            <i class="fas fa-user-circle"></i> username1 | Hoy - 21:30
-                        </h6>
-                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                            sunt
-                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                        <a href="answer-question.php" class="btn btn-primary">Resolver</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i>
-                            20
-                            visitas</small>
-                    </div>
-                </div>
 
-                <div class="entry card m-3">
-                    <div class="card-body">
-                        <span class="badge badge-pill badge-primary">Quimica</span>
-                        <h6 class="card-title">
-                            <i class="fas fa-user-circle"></i> username2 | Hoy - 16:45
-                        </h6>
-                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                            sunt
-                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                        <a href="answer-question.php" class="btn btn-primary">Resolver</a>
+                <?php foreach ($postEntries as $entry): ?>
+                    <div class="entry card m-3">
+                        <div class="card-body">
+                            <span class="badge badge-pill badge-primary">Matematicas</span>
+                            <h6 class="card-title">
+                                <i class="fas fa-user-circle"></i> <?=$entry->getIdUsuario()?> | <?=$entry->getFechaPublicacion()?>
+                            </h6>
+                            <h5 class="card-title entry-title"><?=$entry->getTitulo()?></h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
+                                sunt
+                                veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
+                            <a href="answer-question.php" class="btn btn-primary">Resolver</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas </small>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i>
-                            20
-                            visitas</small>
-                    </div>
-                </div>
+                <?php endforeach; ?>
 
-                <div class="entry card m-3">
-                    <div class="card-body">
-                        <span class="badge badge-pill badge-primary">Informatica</span>
-                        <h6 class="card-title">
-                            <i class="fas fa-user-circle"></i> username3 | Hoy - 10:45
-                        </h6>
-                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                            sunt
-                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                        <a href="answer-question.php" class="btn btn-primary">Resolver</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i>
-                            20
-                            visitas</small>
-                    </div>
-                </div>
-
-                <div class="entry card m-3">
-                    <div class="card-body">
-                        <span class="badge badge-pill badge-primary">Informatica</span>
-                        <h6 class="card-title">
-                            <i class="fas fa-user-circle"></i> username3 | Hoy - 10:45
-                        </h6>
-                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                            sunt
-                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                        <a href="answer-question.php" class="btn btn-primary">Resolver</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i>
-                            20
-                            visitas</small>
-                    </div>
-                </div>
-
-                <div class="entry card m-3">
-                    <div class="card-body">
-                        <span class="badge badge-pill badge-primary">Matematicas</span>
-                        <h6 class="card-title">
-                            <i class="fas fa-user-circle"></i> username4 | Ayer - 22:40
-                        </h6>
-                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                            sunt
-                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                        <a href="answer-question.php" class="btn btn-primary">Resolver</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i>
-                            20
-                            visitas</small>
-                    </div>
-                </div>
-
-                <div class="entry card m-3">
-                    <div class="card-body">
-                        <span class="badge badge-pill badge-primary">Economia</span>
-                        <h6 class="card-title">
-                            <i class="fas fa-user-circle"></i> username5 | 15/05/2019 - 10:45
-                        </h6>
-                        <h5 class="card-title entry-title">Cuanto es 1 + 1?</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                            sunt
-                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                        <a href="answer-question.php" class="btn btn-primary">Resolver</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas | <i class="fas fa-eye"></i>
-                            20
-                            visitas</small>
-                    </div>
-                </div>
             </section>
 
             <nav aria-label="Page navigation example">

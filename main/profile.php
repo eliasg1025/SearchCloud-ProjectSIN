@@ -2,16 +2,19 @@
 
 session_start();
 
-require_once "../database.php";
-require "../models/usuario.php";
+require "../database.php";
+require "../models/admin-usuario.php";
+
+$conexion = abrirConexion();
 
 if (isset($_SESSION['idUsuario'])) {
 
-    $usuario = new Usuario($_SESSION["idUsuario"]);
+    $usuario = new Usuario($conexion, $_SESSION["idUsuario"]);
 
 } else {
     header("Location: ../login.php");
 }
+
 ?>
 
 <!DOCTYPE html>
