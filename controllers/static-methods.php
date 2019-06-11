@@ -22,6 +22,37 @@ class GetById
 
         return $nombreUniversidad;
     }
+
+    public function getNombreUsuario($Usuario_idUsuario)
+    {
+        $sql = "SELECT * FROM `modelosin`.`usuario` WHERE `idUsuario`=:Usuario_idUsuario";
+
+        $registro = $this->conexion->prepare($sql);
+        $registro->bindParam(":Usuario_idUsuario", $Usuario_idUsuario);
+        $registro->execute();
+
+        // Retorna una array asociativo con los resultados
+        $resultado= $registro->fetch(PDO::FETCH_ASSOC);
+        $nombreUsuario = $resultado["nombre"];
+
+        return $nombreUsuario;
+    }
+
+    public function getNombreTopico($Topico_idTopico)
+    {
+        $sql = "SELECT * FROM `modelosin`.`topico` WHERE `idTopico`=:Topico_idTopico";
+
+        $registro= $this->conexion->prepare($sql);
+        $registro->bindParam(":Topico_idTopico", $Topico_idTopico);
+        $registro->execute();
+
+        // Retorna una array asociativo con los resultados
+        $resultado = $registro->fetch(PDO::FETCH_ASSOC);
+        $nombreTopico = $resultado["nombre"];
+
+        return $nombreTopico;
+    }
+
 }
 
 

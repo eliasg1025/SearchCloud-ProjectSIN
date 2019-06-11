@@ -50,11 +50,11 @@ class Post
         return $this->imagenAdjunta;
     }
 
-    public function getIdTopico() {
+    public function getTopico_idTopico() {
         return $this->Topico_idTopico;
     }
 
-    public function getIdUsuario() {
+    public function getUsuario_idUsuario() {
         return $this->Usuario_idUsuario;
     }
 }

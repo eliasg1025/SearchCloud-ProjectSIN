@@ -151,14 +151,12 @@
                 <?php foreach ($postEntries as $entry): ?>
                     <div class="entry card m-3">
                         <div class="card-body">
-                            <span class="badge badge-pill badge-primary">Matematicas</span>
+                            <span class="badge badge-pill badge-primary"><?=$getById->getNombreTopico($entry->getTopico_idTopico())?></span>
                             <h6 class="card-title">
-                                <i class="fas fa-user-circle"></i> <?=$entry->getIdUsuario()?> | <?=$entry->getFechaPublicacion()?>
+                                <i class="fas fa-user-circle"></i> <?=$getById->getNombreUsuario($entry->getUsuario_idUsuario())?> | <?=$entry->getFechaPublicacion()?>
                             </h6>
                             <h5 class="card-title entry-title"><?=$entry->getTitulo()?></h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                                sunt
-                                veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
+                            <p class="card-text"> <?=$entry->getTexto()?> </p>
                             <a href="answer-question.php" class="btn btn-primary">Resolver</a>
                         </div>
                         <div class="card-footer">
