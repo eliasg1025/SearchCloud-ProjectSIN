@@ -4,6 +4,7 @@
     require "../database.php";
     require "../models/admin-usuario.php";
     require "../models/admin-post.php";
+    require "../controllers/static-methods.php";
 
     $conexion = abrirConexion();
 ?>
@@ -11,7 +12,8 @@
 <?php
     if (isset($_SESSION['idUsuario'])) {
 
-        $usuario = new Usuario($conexion, $_SESSION["idUsuario"]);
+        $adminUsuario = new AdminUsuario($conexion);
+        $usuario = $adminUsuario->getUsuarioById($_SESSION["idUsuario"]);
 
     } else {
         header("Location: ../login.php");
@@ -19,10 +21,11 @@
 ?>
 
 <?php
-    $admin = new AdminPost($conexion);
-
-    $postEntries = $admin->getPostByDateDESC();
+    $adminPost = new AdminPost($conexion);
+    $postEntries = $adminPost->getPostByDateDESC();
 ?>
+
+<?php $getById = new GetById($conexion); ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -80,7 +83,7 @@
         <!-- MIDDLE SECTION  -->
         <div class="middle-section p-3">
 
-            <?php if($usuario->esPremium()):?>
+            <?php if(!empty($usuario->getTarjeta_idTarjeta())):?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     Usted <strong>SI</strong> es usuario premium.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

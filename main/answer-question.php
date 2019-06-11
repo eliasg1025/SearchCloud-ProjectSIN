@@ -1,20 +1,27 @@
 <?php
+    session_start();
 
-session_start();
+    require "../database.php";
+    require "../models/admin-usuario.php";
+    require "../models/admin-post.php";
+    require "../controllers/static-methods.php";
 
-require "../database.php";
-require "../models/usuario.php";
+    $conexion = abrirConexion();
+?>
 
-$conexion = abrirConexion();
+<?php
+    if (isset($_SESSION['idUsuario'])) {
 
-if (isset($_SESSION['idUsuario'])) {
+        $adminUsuario = new AdminUsuario($conexion);
+        $usuario = $adminUsuario->getUsuarioById($_SESSION["idUsuario"]);
 
-    $usuario = new Usuario($conexion, $_SESSION["idUsuario"]);
+    } else {
+        header("Location: ../login.php");
+    }
+?>
 
-} else {
-    header("Location: ../login.php");
-}
-
+<?php
+    $getById = new GetById($conexion);
 ?>
 
 <!DOCTYPE html>

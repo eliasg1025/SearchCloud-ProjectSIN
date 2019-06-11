@@ -9,7 +9,7 @@
             </div>
             <div class="col-7">
                 <h4><?=$usuario->getNombre()?></h4>
-                <h6><?=$usuario->getNombreUniversidad()?></h6>
+                <h6><?=$getById->getNombreUniversidad($usuario->getUniversidad_idUniversidad())?></h6>
                 <a href="profile.php" role="button" class="btn btn-outline-info">Ver Perfil</a>
             </div>
         </div>

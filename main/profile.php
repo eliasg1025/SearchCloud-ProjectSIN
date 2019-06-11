@@ -1,20 +1,32 @@
 <?php
+    session_start();
 
-session_start();
+    require "../database.php";
+    require "../models/admin-usuario.php";
+    require "../models/admin-post.php";
+    require "../controllers/static-methods.php";
 
-require "../database.php";
-require "../models/admin-usuario.php";
+    $conexion = abrirConexion();
+?>
 
-$conexion = abrirConexion();
+<?php
+    if (isset($_SESSION['idUsuario'])) {
 
-if (isset($_SESSION['idUsuario'])) {
+        $adminUsuario = new AdminUsuario($conexion);
+        $usuario = $adminUsuario->getUsuarioById($_SESSION["idUsuario"]);
 
-    $usuario = new Usuario($conexion, $_SESSION["idUsuario"]);
+    } else {
+        header("Location: ../login.php");
+    }
+?>
 
-} else {
-    header("Location: ../login.php");
-}
+<?php
+    $adminPost = new AdminPost($conexion);
+    $postEntries = $adminPost->getPostByDateDESC();
+?>
 
+<?php
+    $getById = new GetById($conexion);
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +62,7 @@ if (isset($_SESSION['idUsuario'])) {
                         <?=$usuario->getNombre()?> <?=$usuario->getApellido()?>
                     </h3>
                     <h3 class="card-title">
-                        <small class="text-muted"><?=$usuario->getNombreUniversidad()?></small>
+                        <small class="text-muted"><?=$getById->getNombreUniversidad($usuario->getUniversidad_idUniversidad())?></small>
                     </h3>
                     <div class="container text-center mt-3">
                         <a href="falta-pagina.php" class="btn btn-secondary">Editar perfil</a>
@@ -73,7 +85,7 @@ if (isset($_SESSION['idUsuario'])) {
                             <div class="row">
                                 <div class="card-text col">
                                     <p><span style="font-weight: bold;">Nombre y Apellidos:</span> <?=$usuario->getNombre()?> <?=$usuario->getApellido()?></p>
-                                    <p><span style="font-weight: bold;">Centro de estudios:</span> <?=$usuario->getNombreUniversidad()?></p>
+                                    <p><span style="font-weight: bold;">Centro de estudios:</span> <?=$getById->getNombreUniversidad($usuario->getUniversidad_idUniversidad())?></p>
                                     <p><span style="font-weight: bold;">Correo electronico:</span> <?=$usuario->getEmail()?></p>
                                 </div>
                                 <div class="card-text col">
@@ -93,7 +105,7 @@ if (isset($_SESSION['idUsuario'])) {
                                 <div class="card-text col">
                                     <p>
                                         <span style="font-weight: bold;">Usuario Premium:</span>
-                                        <?php if($usuario->esPremium()): ?>
+                                        <?php if(!empty($usuario->getTarjeta_idTarjeta())): ?>
                                             SI
                                         <?php else: ?>
                                             NO
