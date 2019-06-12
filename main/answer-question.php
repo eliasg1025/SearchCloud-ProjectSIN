@@ -24,6 +24,11 @@
     $getById = new GetById($conexion);
 ?>
 
+<?php
+    $idPost = $_GET["Post_idPost"];
+    // Comparar cuanto costaria montar un servicio en aws y entre un data center peruano
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -52,6 +57,7 @@
         <!-- LEFT SECTION -->
         <div class="left-section p-3">
             <!-- MAIN QUESTION -->
+
             <div class="main-question card m-3">
                 <div class="card-body">
                     <span class="badge badge-pill badge-primary">Quimica</span>
@@ -77,6 +83,7 @@
                     No hay documento adjunto
                 </div>
             </div>
+
 
             <section class="anwser-section card m-3">
                 <div class="card-body">

@@ -157,7 +157,7 @@
                             </h6>
                             <h5 class="card-title entry-title"><?=$entry->getTitulo()?></h5>
                             <p class="card-text"> <?=$entry->getTexto()?> </p>
-                            <a href="answer-question.php" class="btn btn-primary">Resolver</a>
+                            <a href="answer-question.php?Post_idPost=<?=$entry->getIdPost()?>" class="btn btn-primary">Resolver</a>
                         </div>
                         <div class="card-footer">
                             <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas </small>
