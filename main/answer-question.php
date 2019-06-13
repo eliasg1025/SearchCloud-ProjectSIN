@@ -4,6 +4,7 @@
     require "../database.php";
     require "../models/admin-usuario.php";
     require "../models/admin-post.php";
+    require "../models/admin-respuestas.php";
     require "../controllers/static-methods.php";
 
     $conexion = abrirConexion();
@@ -25,9 +26,17 @@
 ?>
 
 <?php
-    $idPost = $_GET["Post_idPost"];
     // Comparar cuanto costaria montar un servicio en aws y entre un data center peruano
+    $idPost = $_GET["Post_idPost"];
+    $adminPost = new AdminPost($conexion);
+
+    $thisPost = $adminPost->getPostById($idPost);
 ?>
+
+<?php
+    $adminRespuesta = new AdminRespuesta($conexion);
+    $arrayRespuestas = $adminRespuesta->getRespuestasByIdPost($_GET["Post_idPost"]);
+ ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -60,27 +69,36 @@
 
             <div class="main-question card m-3">
                 <div class="card-body">
-                    <span class="badge badge-pill badge-primary">Quimica</span>
+                    <span class="badge badge-pill badge-primary"><?=$getById->getNombreTopico($thisPost->getTopico_idTopico())?></span>
                     <h6 class="card-title">
-                        <i class="fas fa-user-circle"></i> username1 | Hoy - 21:30
-                        <span style="font-size: 25px;" class="file-include">
-                            <i class="far fa-file"></i>
-                        </span>
-                    </h6>
-                    <h5 class="card-title entry-title">Calcular entalpia de la reaccion</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                        sunt
-                        veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
+                        <i class="fas fa-user-circle"></i> <?=$getById->getNombreUsuario($thisPost->getUsuario_idUsuario())?> | <?=$thisPost->getFechaPublicacion()?>
 
-                    <div class="image-container text-center">
-                        <img class="question-image img-fluid rounded"
-                            src="https://lidiaconlaquimica.files.wordpress.com/2015/06/entalpia-ejercicio-11.png?w=620"
-                            alt="img-question">
-                    </div>
+                        <?php if (!empty($thisPost->getArchivoAdjunto())): ?>
+                            <span style="font-size: 25px;" class="file-include">
+                                <button type="button" name="button">
+                                    <i class="far fa-file"></i>
+                                </button>
+                            </span>
+                        <?php endif; ?>
+                    </h6>
+                    <h5 class="card-title entry-title"><?=$thisPost->getTitulo()?></h5>
+                    <p class="card-text"><?=$thisPost->getTexto()?></p>
+
+                    <?php if(!empty($thisPost->getImagenAdjunto())): ?>
+                        <div class="image-container text-center">
+                            <img class="question-image img-fluid rounded"
+                                src="https://lidiaconlaquimica.files.wordpress.com/2015/06/entalpia-ejercicio-11.png?w=620"
+                                alt="img-question">
+                        </div>
+                    <?php endif; ?>
 
                 </div>
                 <div class="card-footer text-muted">
-                    No hay documento adjunto
+                    <?php if (empty($thisPost->getArchivoAdjunto())): ?>
+                        No hay documento adjunto
+                    <?php else: ?>
+                        Si hay documento disponible
+                    <?php endif; ?>
                 </div>
             </div>
 
@@ -145,91 +163,41 @@
                     <br>
 
                     <!-- ANOTHER AWNSERS -->
-                    <div class="anwser card">
-                        <div class="card-body">
-                            <h6 class="card-title">
-                                <i class="fas fa-user-circle"></i> Username2 | Hoy 22:30
-                                <span style="font-size: 25px;" class="file-include">
-                                    <i class="far fa-file"></i>
-                                </span>
-                            </h6>
+                    <?php if(sizeof($arrayRespuestas) == 0): ?>
+                        <p>No hay respuestas</p>
+                    <?php else: ?>
+                        <?php foreach ($arrayRespuestas as $respuesta): ?>
+                            <div class="anwser card">
+                                <div class="card-body">
+                                    <h6 class="card-title">
+                                        <i class="fas fa-user-circle"></i> <?=$getById->getNombreUsuario($respuesta->getUsuario_idUsuario())?> | <?=$respuesta->getFechaPublicacion()?>
+                                        <span style="font-size: 25px;" class="file-include">
+                                            <i class="far fa-file"></i>
+                                        </span>
+                                    </h6>
 
-                            <p class="card-text">
-                                <span style="font-weight: bold;">Calificacion: </span>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </p>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi possimus similique
-                                cupiditate
-                                ducimus nihil sit optio necessitatibus molestias iure tempore.
-                            </p>
-                            <div class="image-container text-center">
-                                <img class="question-image img-fluid rounded"
-                                    src="https://lidiaconlaquimica.files.wordpress.com/2015/06/entalpia-ejercicio-11.png?w=620"
-                                    alt="img-question">
+                                    <p class="card-text">
+                                        <span style="font-weight: bold;">Calificacion: </span>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </p>
+                                    <p class="card-text">
+                                        <?=$respuesta->getTexto()?>
+                                    </p>
+                                    <div class="image-container text-center">
+                                        <img class="question-image img-fluid rounded"
+                                            src="https://lidiaconlaquimica.files.wordpress.com/2015/06/entalpia-ejercicio-11.png?w=620"
+                                            alt="img-question">
+                                    </div>
+                                </div>
+
                             </div>
-                        </div>
-
-                    </div>
-                    <br>
-                    <div class="anwser card">
-                        <div class="card-body">
-                            <h6 class="card-title">
-                                <i class="fas fa-user-circle"></i> Username2 | Hoy 22:30
-                            </h6>
-
-                            <p class="card-text">
-                                <span style="font-weight: bold;">Calificacion: </span>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </p>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi possimus similique
-                                cupiditate
-                                ducimus nihil sit optio necessitatibus molestias iure tempore.
-                            </p>
-                            <div class="image-container text-center">
-                                <img class="question-image img-fluid rounded"
-                                    src="https://lidiaconlaquimica.files.wordpress.com/2015/06/entalpia-ejercicio-11.png?w=620"
-                                    alt="img-question">
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="anwser card">
-                        <div class="card-body">
-                            <h6 class="card-title">
-                                <i class="fas fa-user-circle"></i> Username2 | Hoy 22:30
-                            </h6>
-
-                            <p class="card-text">
-                                <span style="font-weight: bold;">Calificacion: </span>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </p>
-                            <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi possimus similique
-                                cupiditate
-                                ducimus nihil sit optio necessitatibus molestias iure tempore.
-                            </p>
-                            <div class="image-container text-center">
-                                <img class="question-image img-fluid rounded"
-                                    src="https://lidiaconlaquimica.files.wordpress.com/2015/06/entalpia-ejercicio-11.png?w=620"
-                                    alt="img-question">
-                            </div>
-                        </div>
-                    </div>
-                    <br>
+                            <br>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
 
             </section>

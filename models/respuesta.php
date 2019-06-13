@@ -1,8 +1,8 @@
 <?php
 
-class Respuetas
+class Respuesta
 {
-	private $idRespuestas;
+	private $idRespuesta;
 	private $fechaPublicacion;
 	private $texto;
 	private $archivoAdjunto;
@@ -11,9 +11,9 @@ class Respuetas
 	private $Usuario_idUsuario;
 	private $Post_idPost;
 
-	function _construct($idRespuestas, $fechaPublicacion, $texto, $archivoAdjunto, $imagenAdjunta, $Calificacion_idCalificacion, $Usuario_idUsuario, $Post_idPost)
+	function __construct($idRespuesta, $fechaPublicacion, $texto, $archivoAdjunto, $imagenAdjunta, $Calificacion_idCalificacion, $Usuario_idUsuario, $Post_idPost)
 	{
-		$this->idRespuestas = $idRespuestas;
+		$this->idRespuesta = $idRespuesta;
 		$this->fechaPublicacion = $fechaPublicacion;
 		$this->texto = $texto;
 		$this->archivoAdjunto = $archivoAdjunto;
@@ -23,27 +23,27 @@ class Respuetas
 		$this->Post_idPost = $Post_idPost;
 	}
 
-	public function getidRespuestas()
+	public function getIdRespuestas()
 	{
-		return $this->idRespuestas;
+		return $this->idRespuesta;
 	}
 
-	public function getfechaPublicacion()
+	public function getFechaPublicacion()
 	{
 		return $this->fechaPublicacion;
 	}
 
-	public function gettexto()
+	public function getTexto()
 	{
 		return $this->texto;
 	}
 
-	public function getarchivoAdjunto()
+	public function getArchivoAdjunto()
 	{
 		return $this->archivoAdjunto;
 	}
 
-	public function getimagenAdjunta()
+	public function getImagenAdjunta()
 	{
 		return $this->texto;
 	}

@@ -8,7 +8,7 @@ class Tarjeta {
 	private $cvv;
 	private $nombreTitular;
 
-	function _construct($idTarjeta, $numTarjeta, $fechaVencimiento, $cvv, $nombreTitular)
+	function __construct($idTarjeta, $numTarjeta, $fechaVencimiento, $cvv, $nombreTitular)
 	{
 		$this->idTarjeta = $idTarjeta;
 		$this->numTarjeta = $numTarjeta;

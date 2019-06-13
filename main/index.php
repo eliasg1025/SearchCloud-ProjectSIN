@@ -5,6 +5,7 @@
     require "../models/admin-usuario.php";
     require "../models/admin-post.php";
     require "../controllers/static-methods.php";
+    require '../controllers/pagination.php';
 
     $conexion = abrirConexion();
 ?>
@@ -21,8 +22,15 @@
 ?>
 
 <?php
+    $paginationValues = getPaginationValues($conexion);
+    $start = $paginationValues["start"];
+    $total_pages = $paginationValues["total_pages"];
+    $items_by_page = $paginationValues["items_by_page"];
+ ?>
+
+<?php
     $adminPost = new AdminPost($conexion);
-    $postEntries = $adminPost->getPostByDateDESC();
+    $postEntries = $adminPost->getPostByDateDESC($start, $items_by_page);
 ?>
 
 <?php $getById = new GetById($conexion); ?>
@@ -169,12 +177,12 @@
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"
-                            aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    <!-- <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"
+                            aria-disabled="true">Previous</a></li> -->
+                    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                        <li class="page-item"><a class="page-link" href="index.php?pagina=<?=$i?>"><?=$i?></a></li>
+                    <?php endfor; ?>
+                    <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
                 </ul>
             </nav>
         </div>

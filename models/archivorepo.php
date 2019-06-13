@@ -13,7 +13,7 @@ class ArchivoRepo {
 
 
 
-	function _construct($idArchivoRepo, $fechaPublicacion, $titulo, $resumen, $rutaArchivo, $Usuario_idUsuario, $Calificacion_idCalificacion, $Topico_idTopico) {
+	function __construct($idArchivoRepo, $fechaPublicacion, $titulo, $resumen, $rutaArchivo, $Usuario_idUsuario, $Calificacion_idCalificacion, $Topico_idTopico) {
 		$this->idArchivoRepo = $idArchivoRepo;
 		$this->fechaPublicacion = $fechaPublicacion;
 		$this->titulo = $titulo;
