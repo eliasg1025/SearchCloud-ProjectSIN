@@ -109,7 +109,7 @@
                                 <input type="email" name="email" class="form-control" placeholder="Email"  required>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="telefono" maxlength="10" minlength="10" class="form-control" placeholder="Telefono" required>
+                                <input type="text" name="telefono" maxlength="15" class="form-control" placeholder="Telefono" required>
                             </div>
                             <div class="form-group">
                                 <label>Ingrese fecha de nacimiento</label>

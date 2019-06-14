@@ -20,10 +20,6 @@
     }
 ?>
 
-<?php
-    $adminPost = new AdminPost($conexion);
-    $postEntries = $adminPost->getPostByDateDESC();
-?>
 
 <?php
     $getById = new GetById($conexion);

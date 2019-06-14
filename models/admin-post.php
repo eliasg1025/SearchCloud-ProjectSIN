@@ -34,7 +34,7 @@ class AdminPost
         return $post;
     }
 
-    public function getPostByDateDESC($start, $total_pages) {
+    public function getAllPostByDateDESC($start, $total_pages) {
         $arrayPost = array();
         $count = 0;
 
@@ -60,6 +60,23 @@ class AdminPost
         }
 
         return $arrayPost;
+    }
+    
+    public function getCantidadRespuestasPorPost()
+    {
+        $sql = "SELECT Post_idPost, COUNT(*) FROM modelosin.respuesta GROUP BY Post_idPost";
+        $result = $this->conexion->query($sql);
+        
+        $cantidadRespuestas = array();
+        
+        while ($row = $result->fetch(PDO::FETCH_BOTH)) {
+            $Post_idPost = $row[0];
+            $numeroRespuestas = $row[1];
+            
+            $cantidadRespuestas[$Post_idPost] = $numeroRespuestas;
+        }
+        
+        return $cantidadRespuestas;
     }
 }
 

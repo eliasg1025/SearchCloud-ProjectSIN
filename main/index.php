@@ -30,7 +30,8 @@
 
 <?php
     $adminPost = new AdminPost($conexion);
-    $postEntries = $adminPost->getPostByDateDESC($start, $items_by_page);
+    $postEntries = $adminPost->getAllPostByDateDESC($start, $items_by_page);
+    $cantidadRespuestas = $adminPost->getCantidadRespuestasPorPost();
 ?>
 
 <?php $getById = new GetById($conexion); ?>
@@ -168,7 +169,15 @@
                             <a href="answer-question.php?Post_idPost=<?=$entry->getIdPost()?>" class="btn btn-primary">Resolver</a>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted"><i class="fas fa-flag"></i> 3 respuestas </small>
+                            <small class="text-muted"><i class="fas fa-flag"></i>
+                            	<?php
+                                	if (!empty($cantidadRespuestas[$entry->getIdPost()])) {
+                            	       echo $cantidadRespuestas[$entry->getIdPost()] . " Respuestas";
+                                	} else {
+                                	    echo "0 Respuestas";
+                                	}
+                            	?> 
+                            </small>
                         </div>
                     </div>
                 <?php endforeach; ?>
