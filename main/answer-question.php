@@ -5,7 +5,7 @@
     require "../models/admin-usuario.php";
     require "../models/admin-post.php";
     require "../models/admin-respuestas.php";
-    require "../controllers/static-methods.php";
+    require "../controllers/get-functions.php";
 
     $conexion = abrirConexion();
 ?>
