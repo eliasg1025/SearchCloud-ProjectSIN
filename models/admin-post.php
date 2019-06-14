@@ -34,36 +34,7 @@ class AdminPost
         return $post;
     }
 
-    public function getAllPostByDateDESC($start, $total_pages) {
-        $arrayPost = array();
-        $count = 0;
-
-        $sql = "SELECT * FROM `modelosin`.`post` ORDER BY `fechaPublicacion` DESC LIMIT $start, $total_pages";
-        $result = $this->conexion->query($sql);
-
-        while ($register = $result->fetch(PDO::FETCH_ASSOC)) {
-
-            $idPost = $register["idPost"];
-            $fechaPublicacion = $register["fechaPublicacion"];
-            $titulo = $register["titulo"];
-            $texto = $register["texto"];
-            $archivoAdjunto = $register["archivoAdjunto"];
-            $imagenAdjunta = $register["imagenAdjunta"];
-            $Topico_idTopico = $register["Topico_idTopico"];
-            $Usuario_idUsuario = $register["Usuario_idUsuario"];
-
-            $post = new Post($idPost, $fechaPublicacion, $titulo, $texto, $archivoAdjunto, $imagenAdjunta, $Topico_idTopico, $Usuario_idUsuario);
-
-            $arrayPost[$count] = $post;
-
-            $count++;
-        }
-
-        return $arrayPost;
-    }
-    
-    public function getCantidadRespuestasPorPost()
-    {
+    public function getCantidadRespuestasPorPost() {
         $sql = "SELECT Post_idPost, COUNT(*) FROM modelosin.respuesta GROUP BY Post_idPost";
         $result = $this->conexion->query($sql);
         
@@ -78,6 +49,59 @@ class AdminPost
         
         return $cantidadRespuestas;
     }
+    
+    public function getPostByDateDESC($Topico_idTopicoSession, $start, $items_by_page) {
+        
+        if ($Topico_idTopicoSession != 0) {
+            $sql = "SELECT * FROM `modelosin`.`post` WHERE `Topico_idTopico`= $Topico_idTopicoSession ORDER BY `fechaPublicacion` DESC LIMIT $start, $items_by_page ";
+        } else {
+            $sql = "SELECT * FROM `modelosin`.`post` ORDER BY `fechaPublicacion` DESC LIMIT $start, $items_by_page";
+        }
+    
+        $result = $this->conexion->query($sql);
+        
+        $arrayPost = array();
+        $count = 0;
+
+        while ($register = $result->fetch(PDO::FETCH_ASSOC)) {
+            
+            $idPost = $register["idPost"];
+            $fechaPublicacion = $register["fechaPublicacion"];
+            $titulo = $register["titulo"];
+            $texto = $register["texto"];
+            $archivoAdjunto = $register["archivoAdjunto"];
+            $imagenAdjunta = $register["imagenAdjunta"];
+            $Topico_idTopico = $register["Topico_idTopico"];
+            $Usuario_idUsuario = $register["Usuario_idUsuario"];
+            
+            $post = new Post($idPost, $fechaPublicacion, $titulo, $texto, $archivoAdjunto, $imagenAdjunta, $Topico_idTopico, $Usuario_idUsuario);
+            
+            $arrayPost[$count] = $post;
+            
+            $count++;
+        }
+        
+        return $arrayPost;
+    }
+
+    public function getTotalPages($Topico_idTopicoSession, $items_by_page)
+    {
+        if ($Topico_idTopicoSession != 0) {
+            $sql = "SELECT * FROM `modelosin`.`post` WHERE `Topico_idTopico`= $Topico_idTopicoSession";
+        } else {
+            $sql = "SELECT * FROM `modelosin`.`post`";
+        }
+
+        $result = $this->conexion->prepare($sql);
+        $result->execute(array());
+        $num_registros = $result->rowCount();
+
+        $total_pages = ceil($num_registros / $items_by_page);
+
+        return $total_pages;
+    }
+    
+    
 }
 
 

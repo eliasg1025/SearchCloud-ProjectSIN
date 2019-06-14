@@ -6,6 +6,7 @@
     require "../models/admin-post.php";
     require "../controllers/get-functions.php";
     require '../controllers/pagination.php';
+    require "../controllers/selector.php";
 
     $conexion = abrirConexion();
 ?>
@@ -22,19 +23,32 @@
 ?>
 
 <?php
-    $paginationValues = getPaginationValues($conexion);
+    $paginationValues = getPaginationValues();
     $start = $paginationValues["start"];
-    $total_pages = $paginationValues["total_pages"];
     $items_by_page = $paginationValues["items_by_page"];
- ?>
+?>
 
 <?php
     $adminPost = new AdminPost($conexion);
-    $postEntries = $adminPost->getAllPostByDateDESC($start, $items_by_page);
     $cantidadRespuestas = $adminPost->getCantidadRespuestasPorPost();
+    
+    if (!isset($_GET["Topico_idTopico"])) {
+        $_GET["Topico_idTopico"] = 0;
+    }
+
+    $postEntries = $adminPost->getPostByDateDESC($_GET["Topico_idTopico"], $start, $items_by_page);   
+    
+    
+    $total_pages = $adminPost->getTotalPages($_GET["Topico_idTopico"], $items_by_page); // Falta corregir
 ?>
 
 <?php $getById = new GetById($conexion); ?>
+
+<?php
+    $sqlTopico = "SELECT * FROM `modelosin`.`topico`";
+    $registrosTopico = $conexion->prepare($sqlTopico);
+    $registrosTopico->execute();
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -69,24 +83,22 @@
             </button>
 
             <div class="list-group collapse" id="subjects-list" role="tablist">
-                <button type="button" class="list-group-item list-group-item-action active" data-toggle="list"
-                    role="tab" aria-controls="home">Todas las asignaturas</button>
-                <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab"
-                    aria-controls="profile">Matematicas</button>
-                <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab"
-                    aria-controls="messages">Quimica</button>
-                <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab"
-                    aria-controls="settings">Biologia</button>
-                <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab"
-                    aria-controls="settings">Fisica</button>
-                <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab"
-                    aria-controls="settings">Ingenieria</button>
-                <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab"
-                    aria-controls="settings">Derecho</button>
-                <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab"
-                    aria-controls="settings">Informatica</button>
-                <button type="button" class="list-group-item list-group-item-action" data-toggle="list" role="tab"
-                    aria-controls="settings">Economia</button>
+            	<?php if(!isset($_GET["Topico_idTopico"])):?>
+                    <a href="index.php?Topico_idTopico=0" class="list-group-item list-group-item-action active">
+                    	Todas las asignaturas
+                	</a>
+            	<?php else:?>
+            		<a href="index.php?Topico_idTopico=0" class="list-group-item list-group-item-action <?=isActive(0, $_GET["Topico_idTopico"])?>">
+                    	Todas las asignaturas
+                	</a>
+            	<?php endif;?>
+
+                <?php while($resultsTopico = $registrosTopico->fetch(PDO::FETCH_ASSOC)): ?>
+                	<a href="index.php?Topico_idTopico=<?=$resultsTopico["idTopico"]?>" class="list-group-item list-group-item-action <?=isActive($resultsTopico["idTopico"], $_GET["Topico_idTopico"])?>">
+                		<?=$resultsTopico["nombre"]?>
+            		</a>
+                <?php endwhile; ?>
+                
             </div>
         </div>
         <!-- MIDDLE SECTION  -->

@@ -3,7 +3,7 @@
 // Definiendo el numero de elementos por pagina
 define('NUM_ITEMS_BY_PAGE', 10);
 
-function getPaginationValues($conexion)
+function getPaginationValues()
 {
     if (isset($_GET['pagina'])) {
 
@@ -19,13 +19,7 @@ function getPaginationValues($conexion)
     $start = ($pagina - 1) * NUM_ITEMS_BY_PAGE; //
 
 
-    $resultado = $conexion->prepare("SELECT * FROM `modelosin`.`post`");
-    $resultado->execute(array());
-    $num_rows = $resultado->rowCount();
-    $total_pages = ceil($num_rows / NUM_ITEMS_BY_PAGE); //
-
-
-    $values = array("start" => $start, "total_pages" => $total_pages, "items_by_page" => NUM_ITEMS_BY_PAGE);
+    $values = array("start" => $start, "items_by_page" => NUM_ITEMS_BY_PAGE);
 
     return $values;
 }
