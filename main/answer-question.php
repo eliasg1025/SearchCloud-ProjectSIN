@@ -3,9 +3,7 @@
 
     require "../database.php";
     require "../models/admin-usuario.php";
-    require "../models/admin-post.php";
-    require "../models/admin-respuestas.php";
-    require "../controllers/get-functions.php";
+    require "../functions/get-functions.php";
 
     $conexion = abrirConexion();
 ?>
@@ -24,19 +22,6 @@
 <?php
     $getById = new GetById($conexion);
 ?>
-
-<?php
-    // Comparar cuanto costaria montar un servicio en aws y entre un data center peruano
-    $idPost = $_GET["Post_idPost"];
-    $adminPost = new AdminPost($conexion);
-
-    $thisPost = $adminPost->getPostById($idPost);
-?>
-
-<?php
-    $adminRespuesta = new AdminRespuesta($conexion);
-    $arrayRespuestas = $adminRespuesta->getRespuestasByIdPost($_GET["Post_idPost"]);
- ?>
 
 <!DOCTYPE html>
 <html lang="es">

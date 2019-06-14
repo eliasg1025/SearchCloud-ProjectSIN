@@ -3,8 +3,7 @@
 
     require "../database.php";
     require "../models/admin-usuario.php";
-    require "../models/admin-post.php";
-    require "../controllers/get-functions.php";
+    require "../functions/get-functions.php";
 
     $conexion = abrirConexion();
 ?>

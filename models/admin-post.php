@@ -80,6 +80,39 @@ class AdminPost
             
             $count++;
         }
+            
+        return $arrayPost;
+    }
+    
+    public function getPostByDateASC($Topico_idTopicoSession, $start, $items_by_page) {
+        if ($Topico_idTopicoSession != 0) {
+            $sql = "SELECT * FROM `modelosin`.`post` WHERE `Topico_idTopico`= $Topico_idTopicoSession ORDER BY `fechaPublicacion` ASC LIMIT $start, $items_by_page ";
+        } else {
+            $sql = "SELECT * FROM `modelosin`.`post` ORDER BY `fechaPublicacion` ASC LIMIT $start, $items_by_page";
+        }
+        
+        $result = $this->conexion->query($sql);
+        
+        $arrayPost = array();
+        $count = 0;
+        
+        while ($register = $result->fetch(PDO::FETCH_ASSOC)) {
+            
+            $idPost = $register["idPost"];
+            $fechaPublicacion = $register["fechaPublicacion"];
+            $titulo = $register["titulo"];
+            $texto = $register["texto"];
+            $archivoAdjunto = $register["archivoAdjunto"];
+            $imagenAdjunta = $register["imagenAdjunta"];
+            $Topico_idTopico = $register["Topico_idTopico"];
+            $Usuario_idUsuario = $register["Usuario_idUsuario"];
+            
+            $post = new Post($idPost, $fechaPublicacion, $titulo, $texto, $archivoAdjunto, $imagenAdjunta, $Topico_idTopico, $Usuario_idUsuario);
+            
+            $arrayPost[$count] = $post;
+            
+            $count++;
+        }
         
         return $arrayPost;
     }

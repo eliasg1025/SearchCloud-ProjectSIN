@@ -3,8 +3,6 @@
 
     require "../database.php";
     require "../models/admin-usuario.php";
-    require "../models/admin-post.php";
-    require "../controllers/get-functions.php";
 
     $conexion = abrirConexion();
 ?>
@@ -18,10 +16,6 @@
     } else {
         header("Location: ../login.php");
     }
-?>
-
-<?php
-    $getById = new GetById($conexion);
 ?>
 
 <!DOCTYPE html>

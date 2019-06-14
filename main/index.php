@@ -4,9 +4,9 @@
     require "../database.php";
     require "../models/admin-usuario.php";
     require "../models/admin-post.php";
-    require "../controllers/get-functions.php";
-    require '../controllers/pagination.php';
-    require "../controllers/selector.php";
+    require "../functions/get-functions.php";
+    require '../functions/pagination.php';
+    require "../functions/activeTopic.php";
 
     $conexion = abrirConexion();
 ?>
@@ -35,9 +35,12 @@
     if (!isset($_GET["Topico_idTopico"])) {
         $_GET["Topico_idTopico"] = 0;
     }
-
-    $postEntries = $adminPost->getPostByDateDESC($_GET["Topico_idTopico"], $start, $items_by_page);   
     
+    if (!isset($_POST["filtro_orden"]) || $_POST["filtro_orden"] == "desc"){
+        $postEntries = $adminPost->getPostByDateDESC($_GET["Topico_idTopico"], $start, $items_by_page);
+    } else {
+        $postEntries = $adminPost->getPostByDateASC($_GET["Topico_idTopico"], $start, $items_by_page);
+    }
     
     $total_pages = $adminPost->getTotalPages($_GET["Topico_idTopico"], $items_by_page); // Falta corregir
 ?>
@@ -140,17 +143,21 @@
 
             <!-- FILTER BUTTONS --->
             <section class="filter-buttons mt-4">
-                <div class="container mt-3 row">
+            
+            	<!-- Filtro de orden de posts -->
+                <form action="<?=$_SERVER["PHP_SELF"]?>" method="POST" class="container mt-3 row">
                     <label for="entries-filter" class="text-white col-sm-3 col-form-label">
                         Ordenar por:
                     </label>
-                    <select id="entries-filter" class="form-control col-sm-6">
-                        <option class="hidden" selected>Mas recientes</option>
-                        <option value="">Mas antiguas</option>
-                        <option value="">Mas relevantes</option>
+                    <select id="entries-filter" name="filtro_orden" class="form-control col-sm-5">
+                        <option value="desc" selected>Mas recientes</option>
+                        <option value="asc">Mas antiguas</option>
                     </select>
-                </div>
-                <div class="container mt-3 row">
+                    <input type="submit" value="►" class="btn btn-outline-light col-sm-1">
+                </form>
+                <!-- Filtro de busqueda -->
+                
+                <form action="<?=$_SERVER["PHP_SELF"]?>" method="POST" class="container mt-3 row">
                     <label for="search-filter" class="text-white col-sm-3 col-form-label">
                         Buscar por:
                     </label>
@@ -163,12 +170,14 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </form>
+                
             </section>
+            <!-- END FILTER BUTTONS -->
 
             <!-- ENTRIES -->
             <section class="entries">
-
+				<!-- Bucle para repetir todos los post -->
                 <?php foreach ($postEntries as $entry): ?>
                     <div class="entry card m-3">
                         <div class="card-body">
@@ -201,6 +210,7 @@
                     <!-- <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"
                             aria-disabled="true">Previous</a></li> -->
                     <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                    	<!-- Falta que reconozca el actual url y añada la varibale GET -->
                         <li class="page-item"><a class="page-link" href="index.php?pagina=<?=$i?>"><?=$i?></a></li>
                     <?php endfor; ?>
                     <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
