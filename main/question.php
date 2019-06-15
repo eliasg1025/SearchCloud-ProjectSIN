@@ -3,6 +3,8 @@
 
     require "../database.php";
     require "../models/admin-usuario.php";
+    require "../models/admin-topico.php";
+    require "../functions/get-functions.php";
 
     $conexion = abrirConexion();
 ?>
@@ -15,6 +17,43 @@
 
     } else {
         header("Location: ../login.php");
+    }
+?>
+
+<?php 
+    $getById = new GetById($conexion);
+?>
+
+<?php
+    $adminTopico = new AdminTopico($conexion);
+    $listaTopico = $adminTopico->getListaTopico();
+?>
+
+<?php
+    if (isset($_POST["titulo"]) && isset($_POST["texto"]) && isset($_POST["Topico_idTopico"]))
+    {
+        $sql = "INSERT INTO `modelosin`.`post` (`fechaPublicacion`, `titulo`, `texto`, `archivoAdjunto`, `imagenAdjunta`, `Topico_idTopico`, `Usuario_idUsuario`) VALUES (:fechaPublicacion, :titulo, :texto, :archivoAdjunto, :imagenAdjunta, :Topico_idTopico, :Usuario_idUsuario)";
+        $stmt = $conexion->prepare($sql);
+
+        //Vinculando parametros
+        date_default_timezone_set('America/Lima');
+        $current_date = date("Y-m-d H:i:s");
+
+        $stmt->bindParam(":fechaPublicacion", $current_date);
+        $stmt->bindParam(":titulo", $_POST["titulo"]);
+        $stmt->bindParam(":texto", $_POST["texto"]);
+        $stmt->bindParam(":archivoAdjunto", $_POST["archivoAdjunto"]);
+        $stmt->bindParam(":imagenAdjunta", $_POST["imagenAdjunta"]);
+        $stmt->bindParam(":Topico_idTopico", $_POST["Topico_idTopico"]);
+        $stmt->bindParam(":Usuario_idUsuario", $_SESSION["idUsuario"]);
+
+        if ($stmt->execute()) {
+            $message = "Se ha registro su post correctamente";
+            $type = "success";
+        } else {
+            $message = "Hubo un problema al registrar su post";
+            $type = "danger";
+        }
     }
 ?>
 
@@ -53,26 +92,34 @@
             <div class="ask-container">
                 <!-- register-right -->
                 <!-- FORM -->
-                <form action="index.php" method="" class="ask-form">
-                    <!-- register-form -->
+                <form action="<?=$_SERVER["PHP_SELF"]?>" method="post" class="ask-form">
+
+                    <!-- Mensaje de confirmacion de registro -->
+                    <?php if (!empty($message)): ?>
+                        <div class="alert alert-<?=$type?> alert-dismissible fade show" role="alert">
+                            <?=$message?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="Topico_idTopico">
                             <option class="hidden" selected disabled>Elija el tema</option>
-                            <option>Matematicas</option>
-                            <option>Quimica</option>
-                            <option>Biologia</option>
-                            <option>Fisica</option>
-                            <option>Ingenieria</option>
-                            <option>Derecho</option>
-                            <option>Informatica</option>
-                            <option>Economia</option>
+                            <?php foreach($listaTopico as $topico): ?>
+                                <option value="<?=$topico["idTopico"]?>"><?=$topico["nombre"]?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <textarea class="form-control" name="ask" id="ask" cols="50" rows="10"
-                            placeholder="Escriba su pregunta">
-                        </textarea>
+                        <input type="text" name="titulo" class="form-control" placeholder="El titulo de su pregunta" required>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control" name="texto" id="ask" cols="50" rows="10"
+                            placeholder="Escriba su pregunta" required></textarea>
                     </div>
 
                     <div class="form-group row">
@@ -83,13 +130,13 @@
                             <label for="file-input">
                                 <i class="fas fa-upload"></i>
                             </label>
-                            <input id="file-input" type="file">
+                            <input id="file-input" type="file" name="archivoAdjunto">
                         </div>
                         <div id="upload-file" class="upload col-2">
                             <label for="image-input">
                                 <i class="fas fa-images"></i>
                             </label>
-                            <input id="image-input" type="file" accept="image/*">
+                            <input id="image-input" type="file" accept="image/*" name="imagenAdjunta">
                         </div>
                     </div>
 

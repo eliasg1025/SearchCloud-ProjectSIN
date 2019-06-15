@@ -4,6 +4,7 @@
     require "../database.php";
     require "../models/admin-usuario.php";
     require "../models/admin-post.php";
+    require "../models/admin-topico.php";
     require "../functions/get-functions.php";
     require '../functions/pagination.php';
     require "../functions/activeTopic.php";
@@ -48,9 +49,8 @@
 <?php $getById = new GetById($conexion); ?>
 
 <?php
-    $sqlTopico = "SELECT * FROM `modelosin`.`topico`";
-    $registrosTopico = $conexion->prepare($sqlTopico);
-    $registrosTopico->execute();
+    $adminTopico = new AdminTopico($conexion);
+    $listaTopico = $adminTopico->getListaTopico();
 ?>
 
 <!DOCTYPE html>
@@ -96,11 +96,11 @@
                 	</a>
             	<?php endif;?>
 
-                <?php while($resultsTopico = $registrosTopico->fetch(PDO::FETCH_ASSOC)): ?>
-                	<a href="index.php?Topico_idTopico=<?=$resultsTopico["idTopico"]?>" class="list-group-item list-group-item-action <?=isActive($resultsTopico["idTopico"], $_GET["Topico_idTopico"])?>">
-                		<?=$resultsTopico["nombre"]?>
+                <?php foreach($listaTopico as $topico): ?>
+                	<a href="index.php?Topico_idTopico=<?=$topico["idTopico"]?>" class="list-group-item list-group-item-action <?=isActive($topico["idTopico"], $_GET["Topico_idTopico"])?>">
+                		<?=$topico["nombre"]?>
             		</a>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
                 
             </div>
         </div>
@@ -155,8 +155,8 @@
                     </select>
                     <input type="submit" value="►" class="btn btn-outline-light col-sm-1">
                 </form>
+
                 <!-- Filtro de busqueda -->
-                
                 <form action="<?=$_SERVER["PHP_SELF"]?>" method="POST" class="container mt-3 row">
                     <label for="search-filter" class="text-white col-sm-3 col-form-label">
                         Buscar por:

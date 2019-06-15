@@ -3,6 +3,8 @@
 
     require "../database.php";
     require "../models/admin-usuario.php";
+    require "../models/admin-post.php";
+    require "../models/admin-respuestas.php";
     require "../functions/get-functions.php";
 
     $conexion = abrirConexion();
@@ -21,6 +23,12 @@
 
 <?php
     $getById = new GetById($conexion);
+
+    $adminPost = new AdminPost($conexion);
+    $thisPost = $adminPost->getPostById($_GET["Post_idPost"]);
+
+    $adminRespuestas = new AdminRespuesta($conexion);
+    $arrayRespuestas = $adminRespuestas->getRespuestasByIdPost($_GET["Post_idPost"]);
 ?>
 
 <!DOCTYPE html>
