@@ -22,6 +22,12 @@
 ?>
 
 <?php
+    if (!isset($_GET["Post_idPost"])) {
+        header("Location: index.php");
+    }
+ ?>
+
+<?php
     $getById = new GetById($conexion);
 
     $adminPost = new AdminPost($conexion);
@@ -29,6 +35,32 @@
 
     $adminRespuestas = new AdminRespuesta($conexion);
     $arrayRespuestas = $adminRespuestas->getRespuestasByIdPost($_GET["Post_idPost"]);
+?>
+
+<?php
+    if (isset($_POST["texto"]))
+    {
+        $sql = "INSERT INTO `modelosin`.`respuesta` (`fechaPublicacion`, `texto`, `archivoAdjunto`, `imagenAdjunta`, `Calificacion_idCalificacion`, `Usuario_idUsuario`, `Post_idPost`) VALUES (:fechaPublicacion, :texto, :archivoAdjunto, :imagenAdjunta, :Calificacion_idCalificacion, :Usuario_idUsuario, :Post_idPost)";
+        $stmt = $conexion->prepare($sql);
+
+        //Vinculando parametros
+        date_default_timezone_set('America/Lima');
+        $current_date = date("Y-m-d H:i:s");
+        $calification = "3";
+        $idPost = $thisPost->getIdPost();
+
+        $stmt->bindParam(":fechaPublicacion", $current_date);
+        $stmt->bindParam(":texto", $_POST["texto"]);
+        $stmt->bindParam(":archivoAdjunto", $_POST["archivoAdjunto"]);
+        $stmt->bindParam(":imagenAdjunta", $_POST["imagenAdjunta"]);
+        $stmt->bindParam(":Calificacion_idCalificacion", $calification);
+        $stmt->bindParam(":Usuario_idUsuario", $_SESSION["idUsuario"]);
+        $stmt->bindParam(":Post_idPost", $_GET["Post_idPost"]);
+
+        if ($stmt->execute()) {
+            header("Location: answer-question.php?Post_idPost=$idPost");
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -119,12 +151,11 @@
                     <!-- ANWSER FORM -->
                     <div class="collapse" id="collapseExample">
                         <div class="card card-body">
-                            <form action="" method="POST">
+                            <form action="<?=$_SERVER["PHP_SELF"]?>?Post_idPost=<?=$_GET["Post_idPost"]?>" method="POST">
                                 <div class="form-group">
                                     <label for="your-anwser" class="col-sm-4 col-form-label">Su respuesta:</label>
-                                    <textarea class="form-control" name="your-anwser" id="your-anwser" cols="50"
-                                        rows="10" placeholder="">
-                                </textarea>
+                                    <textarea class="form-control" id="your-anwser" cols="50"
+                                        rows="10" placeholder="" name="texto" required></textarea>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-8">
@@ -135,13 +166,13 @@
                                         <label for="file-input">
                                             <i class="fas fa-upload"></i>
                                         </label>
-                                        <input id="file-input" type="file">
+                                        <input id="file-input" type="file" name="archivoAdjunto">
                                     </div>
                                     <div id="upload-file" class="upload col-2">
                                         <label for="image-input">
                                             <i class="fas fa-images"></i>
                                         </label>
-                                        <input id="image-input" type="file" accept="image/*">
+                                        <input id="image-input" type="file" accept="image/*" name="imagenAdjunta">
                                     </div>
                                 </div>
 

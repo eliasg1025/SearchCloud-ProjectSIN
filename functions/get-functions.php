@@ -10,7 +10,7 @@ class GetById
 
     public function getNombreUniversidad($Universidad_idUniversidad)
     {
-        $sqlUniv = "SELECT * FROM `modelosin`.`universidad` WHERE `idUniversidad`=:Universidad_idUniversidad";
+        $sqlUniv = "SELECT `nombre` FROM `modelosin`.`universidad` WHERE `idUniversidad`=:Universidad_idUniversidad";
 
         $registroUniv = $this->conexion->prepare($sqlUniv);
         $registroUniv->bindParam(":Universidad_idUniversidad", $Universidad_idUniversidad);
@@ -25,7 +25,7 @@ class GetById
 
     public function getNombreUsuario($Usuario_idUsuario)
     {
-        $sql = "SELECT * FROM `modelosin`.`usuario` WHERE `idUsuario`=:Usuario_idUsuario";
+        $sql = "SELECT `nombre` FROM `modelosin`.`usuario` WHERE `idUsuario`=:Usuario_idUsuario";
 
         $registro = $this->conexion->prepare($sql);
         $registro->bindParam(":Usuario_idUsuario", $Usuario_idUsuario);
@@ -40,7 +40,7 @@ class GetById
 
     public function getNombreTopico($Topico_idTopico)
     {
-        $sql = "SELECT * FROM `modelosin`.`topico` WHERE `idTopico`=:Topico_idTopico";
+        $sql = "SELECT `nombre` FROM `modelosin`.`topico` WHERE `idTopico`=:Topico_idTopico";
 
         $registro= $this->conexion->prepare($sql);
         $registro->bindParam(":Topico_idTopico", $Topico_idTopico);
