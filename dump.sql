@@ -13,8 +13,6 @@
 
 
 -- Dumping database structure for modelosin
-CREATE DATABASE IF NOT EXISTS `modelosin` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-USE `modelosin`;
 
 -- Dumping structure for table modelosin.archivorepo
 CREATE TABLE IF NOT EXISTS `archivorepo` (

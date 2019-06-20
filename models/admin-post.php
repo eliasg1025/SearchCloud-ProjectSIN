@@ -35,7 +35,7 @@ class AdminPost
     }
 
     public function getCantidadRespuestasPorPost() {
-        $sql = "SELECT Post_idPost, COUNT(*) FROM modelosin.respuesta GROUP BY Post_idPost";
+        $sql = "SELECT Post_idPost, COUNT(*) FROM respuesta GROUP BY Post_idPost";
         $result = $this->conexion->query($sql);
         
         $cantidadRespuestas = array();
@@ -53,9 +53,9 @@ class AdminPost
     public function getPostByDateDESC($Topico_idTopicoSession, $start, $items_by_page) {
         
         if ($Topico_idTopicoSession != 0) {
-            $sql = "SELECT * FROM `modelosin`.`post` WHERE `Topico_idTopico`= $Topico_idTopicoSession ORDER BY `fechaPublicacion` DESC LIMIT $start, $items_by_page ";
+            $sql = "SELECT * FROM `post` WHERE `Topico_idTopico`= $Topico_idTopicoSession ORDER BY `fechaPublicacion` DESC LIMIT $start, $items_by_page ";
         } else {
-            $sql = "SELECT * FROM `modelosin`.`post` ORDER BY `fechaPublicacion` DESC LIMIT $start, $items_by_page";
+            $sql = "SELECT * FROM `post` ORDER BY `fechaPublicacion` DESC LIMIT $start, $items_by_page";
         }
     
         $result = $this->conexion->query($sql);
