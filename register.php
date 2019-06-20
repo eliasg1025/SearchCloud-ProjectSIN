@@ -8,7 +8,7 @@
     {
         $conexion = abrirConexion();
         // Preparando la consulta
-        $sql = "INSERT INTO `modelosin`.`usuario` (`nombre`, `apellido`, `email`, `telefono`, `password`, `fechaNacimiento`, `Universidad_idUniversidad`, `Genero_idGenero`) VALUES (:nombre, :apellido, :email, :telefono, :pass, :fechaNacimiento, :idUniversidad, :idGenero)";
+        $sql = "INSERT INTO `usuario` (`nombre`, `apellido`, `email`, `telefono`, `password`, `fechaNacimiento`, `Universidad_idUniversidad`, `Genero_idGenero`) VALUES (:nombre, :apellido, :email, :telefono, :pass, :fechaNacimiento, :idUniversidad, :idGenero)";
         $stmt = $conexion->prepare($sql);
 
         // Vinculando parametros
@@ -34,7 +34,7 @@
 
 <?php
     $conn = abrirConexion();
-    $sqlUniv = "SELECT `idUniversidad`, `nombre` FROM `modelosin`.`universidad`";
+    $sqlUniv = "SELECT `idUniversidad`, `nombre` FROM `universidad`";
     $registrosUniv = $conn->prepare($sqlUniv);
     $registrosUniv->execute();
 ?>

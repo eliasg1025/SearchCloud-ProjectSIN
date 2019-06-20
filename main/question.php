@@ -32,7 +32,7 @@
 <?php
     if (isset($_POST["titulo"]) && isset($_POST["texto"]) && isset($_POST["Topico_idTopico"]))
     {
-        $sql = "INSERT INTO `modelosin`.`post` (`fechaPublicacion`, `titulo`, `texto`, `archivoAdjunto`, `imagenAdjunta`, `Topico_idTopico`, `Usuario_idUsuario`) VALUES (:fechaPublicacion, :titulo, :texto, :archivoAdjunto, :imagenAdjunta, :Topico_idTopico, :Usuario_idUsuario)";
+        $sql = "INSERT INTO `post` (`fechaPublicacion`, `titulo`, `texto`, `archivoAdjunto`, `imagenAdjunta`, `Topico_idTopico`, `Usuario_idUsuario`) VALUES (:fechaPublicacion, :titulo, :texto, :archivoAdjunto, :imagenAdjunta, :Topico_idTopico, :Usuario_idUsuario)";
         $stmt = $conexion->prepare($sql);
 
         //Vinculando parametros

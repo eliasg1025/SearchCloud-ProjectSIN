@@ -86,9 +86,9 @@ class AdminPost
     
     public function getPostByDateASC($Topico_idTopicoSession, $start, $items_by_page) {
         if ($Topico_idTopicoSession != 0) {
-            $sql = "SELECT * FROM `modelosin`.`post` WHERE `Topico_idTopico`= $Topico_idTopicoSession ORDER BY `fechaPublicacion` ASC LIMIT $start, $items_by_page ";
+            $sql = "SELECT * FROM `post` WHERE `Topico_idTopico`= $Topico_idTopicoSession ORDER BY `fechaPublicacion` ASC LIMIT $start, $items_by_page ";
         } else {
-            $sql = "SELECT * FROM `modelosin`.`post` ORDER BY `fechaPublicacion` ASC LIMIT $start, $items_by_page";
+            $sql = "SELECT * FROM `post` ORDER BY `fechaPublicacion` ASC LIMIT $start, $items_by_page";
         }
         
         $result = $this->conexion->query($sql);
@@ -120,9 +120,9 @@ class AdminPost
     public function getTotalPages($Topico_idTopicoSession, $items_by_page)
     {
         if ($Topico_idTopicoSession != 0) {
-            $sql = "SELECT * FROM `modelosin`.`post` WHERE `Topico_idTopico`= $Topico_idTopicoSession";
+            $sql = "SELECT * FROM `post` WHERE `Topico_idTopico`= $Topico_idTopicoSession";
         } else {
-            $sql = "SELECT * FROM `modelosin`.`post`";
+            $sql = "SELECT * FROM `post`";
         }
 
         $result = $this->conexion->prepare($sql);

@@ -16,7 +16,7 @@ class AdminRespuesta
         $arrayRepuestas = array();
         $count = 0;
 
-        $sql = "SELECT * FROM `modelosin`.`respuesta` WHERE `Post_idPost` = :Post_idPost";
+        $sql = "SELECT * FROM `respuesta` WHERE `Post_idPost` = :Post_idPost";
         $records = $this->conexion->prepare($sql);
         $records->bindParam(':Post_idPost', $Post_idPostSesion);
         $records->execute();

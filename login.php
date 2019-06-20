@@ -3,7 +3,7 @@
 
     if (isset($_SESSION['idUsuario']))
     {
-        header('Location: /Projects/SearchCloud-ProjectSIN/main/index.php');
+        header('Location: main/index.php');
     }
 
     require_once "database.php";
@@ -11,7 +11,7 @@
 
     if (!empty($_POST['email']) && !empty($_POST['password']))
     {
-        $records = $conexion->prepare('SELECT `idUsuario`, `email`, `password` FROM `modelosin`.`usuario` WHERE `email` = :email;');
+        $records = $conexion->prepare('SELECT `idUsuario`, `email`, `password` FROM `usuario` WHERE `email` = :email;');
         $records->bindParam(':email', $_POST['email']);
         $records->execute();
         $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -22,7 +22,7 @@
         if (count($results) > 0 && $results["password"]==$_POST["password"])
         {
             $_SESSION['idUsuario'] = $results['idUsuario'];
-            header("Location: /Projects/SearchCloud-ProjectSIN/main/index.php");
+            header("Location: main/index.php");
         }
         else
         {

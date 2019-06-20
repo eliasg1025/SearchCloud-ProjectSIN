@@ -3,10 +3,10 @@
 // Retorna una objeto PDO
 
 function abrirConexion() {
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "modelosin";
+    $server = "b1gtrg162sfxnptw1ej0-mysql.services.clever-cloud.com";
+    $username = "ua3vfykjoh8vdshz";
+    $password = "jPz18bzSnP2YAeEXTS8f";
+    $database = "b1gtrg162sfxnptw1ej0";
 
     try {
         $connection = new PDO("mysql:host=$server;dbname=$database;", $username, $password);

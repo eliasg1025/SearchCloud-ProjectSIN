@@ -10,7 +10,7 @@ class AdminTopico
 
     public function getListaTopico()
     {
-        $sqlTopico = "SELECT * FROM `modelosin`.`topico`";
+        $sqlTopico = "SELECT * FROM `topico`";
         $registrosTopico = $this->conexion->prepare($sqlTopico);
         $registrosTopico->execute();
 

@@ -13,7 +13,7 @@ class AdminUsuario
 
     public function getUsuarioById($idUsuarioSesion)
     {
-        $records = $this->conexion->prepare('SELECT * FROM `modelosin`.`usuario` WHERE `idUsuario`=:idUsuario');
+        $records = $this->conexion->prepare('SELECT * FROM `usuario` WHERE `idUsuario`=:idUsuario');
         $records->bindParam(':idUsuario', $idUsuarioSesion);
         $records->execute();
         $results = $records->fetch(PDO::FETCH_ASSOC);

@@ -40,7 +40,7 @@
 <?php
     if (isset($_POST["texto"]))
     {
-        $sql = "INSERT INTO `modelosin`.`respuesta` (`fechaPublicacion`, `texto`, `archivoAdjunto`, `imagenAdjunta`, `Calificacion_idCalificacion`, `Usuario_idUsuario`, `Post_idPost`) VALUES (:fechaPublicacion, :texto, :archivoAdjunto, :imagenAdjunta, :Calificacion_idCalificacion, :Usuario_idUsuario, :Post_idPost)";
+        $sql = "INSERT INTO `respuesta` (`fechaPublicacion`, `texto`, `archivoAdjunto`, `imagenAdjunta`, `Calificacion_idCalificacion`, `Usuario_idUsuario`, `Post_idPost`) VALUES (:fechaPublicacion, :texto, :archivoAdjunto, :imagenAdjunta, :Calificacion_idCalificacion, :Usuario_idUsuario, :Post_idPost)";
         $stmt = $conexion->prepare($sql);
 
         //Vinculando parametros
