@@ -19,7 +19,7 @@
         $usuario = $adminUsuario->getUsuarioById($_SESSION["idUsuario"]);
 
     } else {
-        header("Location: ../login.php");
+        header("Location: https://searchcloud-project.herokuapp.com/login.php");
     }
 ?>
 

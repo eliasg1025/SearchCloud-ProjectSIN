@@ -3,7 +3,7 @@
 
     if (isset($_SESSION['idUsuario']))
     {
-        header('Location: /main/index.php');
+        header('Location: https://searchcloud-project.herokuapp.com/main/index.php');
     }
 
     require_once "database.php";
