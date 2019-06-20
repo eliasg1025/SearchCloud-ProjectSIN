@@ -11,7 +11,7 @@ class AdminPost
     }
 
     public function getPostById($idPostSesion) {
-        $records = $this->conexion->prepare('SELECT * FROM `modelosin`.`post` WHERE `idPost`=:idPost');
+        $records = $this->conexion->prepare('SELECT * FROM `post` WHERE `idPost`=:idPost');
         $records->bindParam(':idPost', $idPostSesion);
         $records->execute();
         $results = $records->fetch(PDO::FETCH_ASSOC);
