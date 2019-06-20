@@ -1,13 +1,13 @@
 <?php
     session_start();
 
-    require "../database.php";
-    require "../models/admin-usuario.php";
-    require "../models/admin-post.php";
-    require "../models/admin-topico.php";
-    require "../functions/get-functions.php";
-    require '../functions/pagination.php';
-    require "../functions/activeTopic.php";
+    require "database.php";
+    require "models/admin-usuario.php";
+    require "models/admin-post.php";
+    require "models/admin-topico.php";
+    require "functions/get-functions.php";
+    require 'functions/pagination.php';
+    require "functions/activeTopic.php";
 
     $conexion = abrirConexion();
 ?>
@@ -19,7 +19,7 @@
         $usuario = $adminUsuario->getUsuarioById($_SESSION["idUsuario"]);
 
     } else {
-        header("Location: https://searchcloud-project.herokuapp.com/login.php");
+        header("Location: /login.php");
     }
 ?>
 
@@ -63,17 +63,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SearchCloud</title>
     <!-- ICON -->
-    <link rel="icon" type="image/png" href="../assets/img/logo.png" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
     <!-- BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="../assets/fa/css/all.min.css">
+    <link rel="stylesheet" href="assets/fa/css/all.min.css">
     <!-- CUSTOM CSS (css personalizado) -->
-    <link rel="stylesheet" href="../assets/css/custom/main-style.css">
+    <link rel="stylesheet" href="assets/css/custom/main-style.css">
 </head>
 
 <body>
-    <?php require "../partials/user-navbar.php" ?>
+    <?php require "partials/user-navbar.php" ?>
 
     <!---------------------- LAYOUT ----------------------->
     <div class="layout-container">
@@ -87,17 +87,17 @@
 
             <div class="list-group collapse" id="subjects-list" role="tablist">
             	<?php if(!isset($_GET["Topico_idTopico"])):?>
-                    <a href="index.php?Topico_idTopico=0" class="list-group-item list-group-item-action active">
+                    <a href="main.php?Topico_idTopico=0" class="list-group-item list-group-item-action active">
                     	Todas las asignaturas
                 	</a>
             	<?php else:?>
-            		<a href="index.php?Topico_idTopico=0" class="list-group-item list-group-item-action <?=isActive(0, $_GET["Topico_idTopico"])?>">
+            		<a href="main.php?Topico_idTopico=0" class="list-group-item list-group-item-action <?=isActive(0, $_GET["Topico_idTopico"])?>">
                     	Todas las asignaturas
                 	</a>
             	<?php endif;?>
 
                 <?php foreach($listaTopico as $topico): ?>
-                	<a href="index.php?Topico_idTopico=<?=$topico["idTopico"]?>" class="list-group-item list-group-item-action <?=isActive($topico["idTopico"], $_GET["Topico_idTopico"])?>">
+                	<a href="main.php?Topico_idTopico=<?=$topico["idTopico"]?>" class="list-group-item list-group-item-action <?=isActive($topico["idTopico"], $_GET["Topico_idTopico"])?>">
                 		<?=$topico["nombre"]?>
             		</a>
                 <?php endforeach; ?>
@@ -211,22 +211,22 @@
                             aria-disabled="true">Previous</a></li> -->
                     <?php for ($i = 1; $i <= $total_pages; $i++): ?>
                     	<!-- Falta que reconozca el actual url y añada la varibale GET -->
-                        <li class="page-item"><a class="page-link" href="index.php?pagina=<?=$i?>"><?=$i?></a></li>
+                        <li class="page-item"><a class="page-link" href="main.php?pagina=<?=$i?>"><?=$i?></a></li>
                     <?php endfor; ?>
                     <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
                 </ul>
             </nav>
         </div>
 
-        <?php require "../partials/right-section.php" ?>
+        <?php require "partials/right-section.php" ?>
     </div>
 
 
 
     <!-- BOOTSTRAP JS -->
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/jquery-3.4.1.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- Cambiar a la clase .active un elemento del .list-group -->
     <script type="text/javascript">
@@ -241,8 +241,8 @@
     </script>
 
     <!-- Popovers -->
-    <script type="text/javascript" src="../assets/js/scripts/notification-popover.js"></script>
-    <script type="text/javascript" src="../assets/js/scripts/profile-popover.js"></script>
+    <script type="text/javascript" src="assets/js/scripts/notification-popover.js"></script>
+    <script type="text/javascript" src="assets/js/scripts/profile-popover.js"></script>
 
 </body>
 

@@ -1,9 +1,9 @@
 <?php
     session_start();
 
-    require "../database.php";
-    require "../models/admin-usuario.php";
-    require "../functions/get-functions.php";
+    require "database.php";
+    require "models/admin-usuario.php";
+    require "functions/get-functions.php";
 
     $conexion = abrirConexion();
 ?>
@@ -15,7 +15,7 @@
         $usuario = $adminUsuario->getUsuarioById($_SESSION["idUsuario"]);
 
     } else {
-        header("Location: ../login.php");
+        header("Location: login.php");
     }
 ?>
 
@@ -33,17 +33,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SearchCloud | Perfil</title>
     <!-- ICON -->
-    <link rel="icon" type="image/png" href="../assets/img/logo.png" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
     <!-- BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="../assets/fa/css/all.min.css">
+    <link rel="stylesheet" href="assets/fa/css/all.min.css">
     <!-- CUSTOM CSS (css personalizado) -->
-    <link rel="stylesheet" href="../assets/css/custom/profile-style.css">
+    <link rel="stylesheet" href="assets/css/custom/profile-style.css">
 </head>
 
 <body>
-    <?php require "../partials/user-navbar.php" ?>
+    <?php require "partials/user-navbar.php" ?>
 
     <!---------------------- LAYOUT ----------------------->
 
@@ -111,13 +111,13 @@
                                 </div>
                                 <div class="card-text col">
                                     <p><span style="font-weight: bold;">Archivos subidos:</span> 2</p>
-                                    <p><a href="index.php">Cambiar a premium</a></p>
+                                    <p><a href="main.php">Cambiar a premium</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="btn-conainer p-4">
-                        <a class="btn btn-info btn-lg" href="index.php" role="button">Volver al Foro</a>
+                        <a class="btn btn-info btn-lg" href="main.php" role="button">Volver al Foro</a>
                     </div>
                 </div>
             </div>
@@ -126,9 +126,9 @@
 
 
     <!-- BOOTSTRAP JS -->
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/jquery-3.4.1.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- Cambiar a la clase .active un elemento del .list-group -->
     <script type="text/javascript">
@@ -143,8 +143,8 @@
     </script>
 
     <!-- Popovers -->
-    <script type="text/javascript" src="../assets/js/scripts/notification-popover.js"></script>
-    <script type="text/javascript" src="../assets/js/scripts/profile-popover.js"></script>
+    <script type="text/javascript" src="assets/js/scripts/notification-popover.js"></script>
+    <script type="text/javascript" src="assets/js/scripts/profile-popover.js"></script>
 
 </body>
 

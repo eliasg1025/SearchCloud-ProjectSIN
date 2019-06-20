@@ -8,7 +8,7 @@ function getPaginationValues()
     if (isset($_GET['pagina'])) {
 
         if ($_GET['pagina'] == 1) {
-            header("Location: https://searchcloud-project.herokuapp.com/main/index.php");
+            header("Location: main.php");
         } else {
             $pagina = $_GET['pagina'];
         }

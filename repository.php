@@ -1,9 +1,9 @@
 <?php
     session_start();
 
-    require "../database.php";
-    require "../models/admin-usuario.php";
-    require "../functions/get-functions.php";
+    require "database.php";
+    require "models/admin-usuario.php";
+    require "functions/get-functions.php";
 
     $conexion = abrirConexion();
 ?>
@@ -15,7 +15,7 @@
         $usuario = $adminUsuario->getUsuarioById($_SESSION["idUsuario"]);
 
     } else {
-        header("Location: ../login.php");
+        header("Location: login.php");
     }
 ?>
 
@@ -33,17 +33,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SearchCloud | Repositorio</title>
     <!-- ICON -->
-    <link rel="icon" type="image/png" href="../assets/img/logo.png" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
     <!-- BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="../assets/fa/css/all.min.css">
+    <link rel="stylesheet" href="assets/fa/css/all.min.css">
     <!-- CUSTOM CSS (css personalizado) -->
-    <link rel="stylesheet" href="../assets/css/custom/repository-style.css">
+    <link rel="stylesheet" href="assets/css/custom/repository-style.css">
 </head>
 
 <body>
-    <?php require "../partials/user-navbar.php" ?>
+    <?php require "partials/user-navbar.php" ?>
 
     <!-- LAYOUT -->
     <div class="layout-container">
@@ -218,17 +218,17 @@
             </nav>
         </div>
 
-        <?php require "../partials/right-section.php" ?>
+        <?php require "partials/right-section.php" ?>
     </div>
 
     <!-- BOOTSTRAP JS -->
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/jquery-3.4.1.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- Popovers -->
-    <script type="text/javascript" src="../assets/js/scripts/notification-popover.js"></script>
-    <script type="text/javascript" src="../assets/js/scripts/profile-popover.js"></script>
+    <script type="text/javascript" src="assets/js/scripts/notification-popover.js"></script>
+    <script type="text/javascript" src="assets/js/scripts/profile-popover.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {

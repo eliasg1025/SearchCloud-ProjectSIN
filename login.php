@@ -3,7 +3,7 @@
 
     if (isset($_SESSION['idUsuario']))
     {
-        header('Location: https://searchcloud-project.herokuapp.com/main/index.php');
+        header('Location: main.php');
     }
 
     require_once "database.php";
@@ -22,7 +22,7 @@
         if (count($results) > 0 && $results["password"]==$_POST["password"])
         {
             $_SESSION['idUsuario'] = $results['idUsuario'];
-            header("Location: main/index.php");
+            header("Location: main.php");
         }
         else
         {

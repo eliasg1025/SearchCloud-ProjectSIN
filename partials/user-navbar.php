@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <img src="../assets/img/logo.png" class="image-responsive thumbnail" width="25" height="25"
+                <img src="assets/img/logo.png" class="image-responsive thumbnail" width="25" height="25"
                     class="d-inline-block align-top" alt="logo">
                 SearchCloud
             </a>

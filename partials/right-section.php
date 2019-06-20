@@ -5,7 +5,7 @@
     <div id="profile-resume" class="card p-3">
         <div class="row align-items-center">
             <div class="col-5 p-0">
-                <img src="../assets/img/user-default.png" alt="user-default" class="img-fuild rounded-circle">
+                <img src="assets/img/user-default.png" alt="user-default" class="img-fuild rounded-circle">
             </div>
             <div class="col-7">
                 <h4><?=$usuario->getNombre()?></h4>
@@ -20,7 +20,7 @@
         <div class="card-body p-3">
             <h5 class="card-title text-center"><i class="fas fa-bars"></i> Opciones</h5>
             <div class="btn-group-vertical btn-block">
-                <a href="index.php" class="btn btn-outline-info"><i class="fas fa-home"></i> Pagina
+                <a href="main.php" class="btn btn-outline-info"><i class="fas fa-home"></i> Pagina
                     Principal</a>
                 <a href="question.php" class="btn btn-outline-info"><i class="fas fa-question"></i> Realizar una
                     pregunta</a>
@@ -28,7 +28,7 @@
                     repositorio de archivos</a>
                 <button class="btn btn-outline-info" data-toggle="modal" data-target="#premium-user-modal"><i
                         class="fas fa-crown"></i> Cambiar a cuenta Premium</button>
-                <a href="../logout.php" class="btn btn-outline-info"><i class="fas fa-sign-out-alt"></i> CERRAR SESION</a>
+                <a href="logout.php" class="btn btn-outline-info"><i class="fas fa-sign-out-alt"></i> CERRAR SESION</a>
             </div>
         </div>
     </div>

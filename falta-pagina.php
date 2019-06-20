@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <?php require '../partials/user-navbar.php'; ?>
+    <?php require 'partials/user-navbar.php'; ?>
 
     <!-- LAYOUT -->
     <div class="layout-container text-white">
