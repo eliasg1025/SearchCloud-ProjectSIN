@@ -139,7 +139,7 @@
                     <h2>Comparte y Envia</h2>
                     <p class="lead mb-0">Tus dudas, consultas, problemas ó cualquier inquietud acerca de cualquier tema académico que necesitas ó desees saber</p>
                     <div class="btn-conainer p-4 text-center">
-                        <a class="btn btn-info btn-block btn-lg" href="main/index.html?user=null" role="button">Ver Foro</a>
+                        <a class="btn btn-info btn-block btn-lg" href="main/index.php" role="button">Ver Foro</a>
                     </div>
 
                 </div>
