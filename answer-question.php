@@ -211,11 +211,13 @@
                                     <p class="card-text">
                                         <?=$respuesta->getTexto()?>
                                     </p>
-                                    <div class="image-container text-center">
-                                        <img class="question-image img-fluid rounded"
-                                            src="https://lidiaconlaquimica.files.wordpress.com/2015/06/entalpia-ejercicio-11.png?w=620"
-                                            alt="img-question">
-                                    </div>
+                                    <?php if($respuesta->getImagenAdjunta() != null): ?>
+                                        <div class="image-container text-center">
+                                            <img class="question-image img-fluid rounded"
+                                                src="https://lidiaconlaquimica.files.wordpress.com/2015/06/entalpia-ejercicio-11.png?w=620"
+                                                alt="img-question">
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
 
                             </div>

@@ -45,7 +45,7 @@ class Respuesta
 
 	public function getImagenAdjunta()
 	{
-		return $this->texto;
+		return $this->imagenAdjunta;
 	}
 
 	public function getCalificacion_idCalificacion()
