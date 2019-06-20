@@ -3,7 +3,7 @@
 
     if (isset($_SESSION['idUsuario']))
     {
-        header('Location: main/index.php');
+        header('Location: /main/index.php');
     }
 
     require_once "database.php";
