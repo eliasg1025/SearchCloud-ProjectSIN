@@ -32,17 +32,17 @@
 <?php
     $adminPost = new AdminPost($conexion);
     $cantidadRespuestas = $adminPost->getCantidadRespuestasPorPost();
-    
+
     if (!isset($_GET["Topico_idTopico"])) {
         $_GET["Topico_idTopico"] = 0;
     }
-    
+
     if (!isset($_POST["filtro_orden"]) || $_POST["filtro_orden"] == "desc"){
         $postEntries = $adminPost->getPostByDateDESC($_GET["Topico_idTopico"], $start, $items_by_page);
     } else {
         $postEntries = $adminPost->getPostByDateASC($_GET["Topico_idTopico"], $start, $items_by_page);
     }
-    
+
     $total_pages = $adminPost->getTotalPages($_GET["Topico_idTopico"], $items_by_page); // Falta corregir
 ?>
 
@@ -87,11 +87,11 @@
 
             <div class="list-group collapse" id="subjects-list" role="tablist">
             	<?php if(!isset($_GET["Topico_idTopico"])):?>
-                    <a href="main.php?Topico_idTopico=0" class="list-group-item list-group-item-action active">
+                    <a href="main.php" class="list-group-item list-group-item-action active">
                     	Todas las asignaturas
                 	</a>
             	<?php else:?>
-            		<a href="main.php?Topico_idTopico=0" class="list-group-item list-group-item-action <?=isActive(0, $_GET["Topico_idTopico"])?>">
+            		<a href="main.php" class="list-group-item list-group-item-action <?=isActive(0, $_GET["Topico_idTopico"])?>">
                     	Todas las asignaturas
                 	</a>
             	<?php endif;?>
@@ -101,7 +101,7 @@
                 		<?=$topico["nombre"]?>
             		</a>
                 <?php endforeach; ?>
-                
+
             </div>
         </div>
         <!-- MIDDLE SECTION  -->
@@ -143,7 +143,7 @@
 
             <!-- FILTER BUTTONS --->
             <section class="filter-buttons mt-4">
-            
+
             	<!-- Filtro de orden de posts -->
                 <form action="<?=$_SERVER["PHP_SELF"]?>" method="POST" class="container mt-3 row">
                     <label for="entries-filter" class="text-white col-sm-3 col-form-label">
@@ -171,7 +171,7 @@
                         </div>
                     </div>
                 </form>
-                
+
             </section>
             <!-- END FILTER BUTTONS -->
 
@@ -197,7 +197,7 @@
                                 	} else {
                                 	    echo "0 Respuestas";
                                 	}
-                            	?> 
+                            	?>
                             </small>
                         </div>
                     </div>
