@@ -7,7 +7,7 @@
     require "models/admin-topico.php";
     require "functions/get-functions.php";
     require 'functions/pagination.php';
-    require "functions/activeTopic.php";
+    require "functions/active.php";
 
     $conexion = abrirConexion();
 ?>
@@ -43,7 +43,7 @@
         $postEntries = $adminPost->getPostByDateASC($_GET["Topico_idTopico"], $start, $items_by_page);
     }
 
-    $total_pages = $adminPost->getTotalPages($_GET["Topico_idTopico"], $items_by_page); // Falta corregir
+    $total_pages = $adminPost->getTotalPages($_GET["Topico_idTopico"], $items_by_page);
 ?>
 
 <?php $getById = new GetById($conexion); ?>
@@ -52,6 +52,14 @@
     $adminTopico = new AdminTopico($conexion);
     $listaTopico = $adminTopico->getListaTopico();
 ?>
+
+<?php
+    if (!isset($_GET["Topico_idTopico"])) {
+        $pagina_url = "?pagina=";
+    } else {
+        $pagina_url = "?Topico_idTopico=".$_GET["Topico_idTopico"]."&pagina=";
+    }
+ ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -145,7 +153,7 @@
             <section class="filter-buttons mt-4">
 
             	<!-- Filtro de orden de posts -->
-                <form action="<?=$_SERVER["PHP_SELF"]?>" method="POST" class="container mt-3 row">
+                <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" class="container mt-3 row">
                     <label for="entries-filter" class="text-white col-sm-3 col-form-label">
                         Ordenar por:
                     </label>
@@ -153,11 +161,12 @@
                         <option value="desc" selected>Mas recientes</option>
                         <option value="asc">Mas antiguas</option>
                     </select>
+
                     <input type="submit" value="►" class="btn btn-outline-light col-sm-1">
                 </form>
 
                 <!-- Filtro de busqueda -->
-                <form action="<?=$_SERVER["PHP_SELF"]?>" method="POST" class="container mt-3 row">
+                <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" class="container mt-3 row">
                     <label for="search-filter" class="text-white col-sm-3 col-form-label">
                         Buscar por:
                     </label>
@@ -211,7 +220,7 @@
                             aria-disabled="true">Previous</a></li> -->
                     <?php for ($i = 1; $i <= $total_pages; $i++): ?>
                     	<!-- Falta que reconozca el actual url y añada la varibale GET -->
-                        <li class="page-item"><a class="page-link" href="main.php?pagina=<?=$i?>"><?=$i?></a></li>
+                        <li class="page-item <?=isActivePage($i, $_GET['pagina'])?>"><a class="page-link" href="main.php<?=$pagina_url.$i?>"><?=$i?></a></li>
                     <?php endfor; ?>
                     <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
                 </ul>

@@ -3,6 +3,7 @@
 
     require "database.php";
     require "models/admin-usuario.php";
+    require "models/admin-archivorepo.php";
     require "functions/get-functions.php";
 
     $conexion = abrirConexion();
@@ -22,6 +23,8 @@
 <?php
     $getById = new GetById($conexion);
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -79,18 +82,16 @@
 
             <!-- FILTER BUTTONS --->
             <section class="filter-buttons mt-5">
-                <div class="container mt-3 row">
+                <!-- <div class="container mt-3 row">
                     <label for="entries-filter" class="text-white col-sm-3 col-form-label">
                         Ordenar por:
                     </label>
                     <select id="entries-filter" class="form-control col-sm-6">
-                        <option class="hidden" selected>Mas relevantes</option>
-                        <option value="">Mas vistas</option>
-                        <option value="">Mas recientes</option>
-                        <option value="">Mas antiguas</option>
+                        <option value="desc">Mas recientes</option>
+                        <option value="asc">Mas antiguas</option>
                     </select>
-                </div>
-                <div class="container mt-3 row">
+                </div> -->
+                <form action="<?=$_SERVER["PHP_SELF"]?>" method="POST" class="container mt-3 row">
                     <label for="search-filter" class="text-white col-sm-3 col-form-label">
                         Buscar por:
                     </label>
@@ -98,16 +99,17 @@
                         <input id="search-filter" type="text" class="form-control" placeholder="Ingrese palabra clave"
                             aria-label="Ingrese palabra clave" aria-describedby="button-search">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-light" type="button" id="button-search">
+                            <button class="btn btn-outline-light" type="submit" id="button-search">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
                     </div>
-                </div>
+                </form>
             </section>
 
             <!-- ARCHIVOS DEL REPOSITORIO -->
             <section class="repo-entries mt-5">
+
                 <div class="repo-entry card m-3">
                     <div class="card-body">
                         <span class="badge badge-pill badge-primary">Matematicas</span>
@@ -165,6 +167,7 @@
                         <small class="text-muted">Subido por Elias Guere - 16/05/2019</small>
                     </div>
                 </div>
+
             </section>
             <!-- MODAL FILES -->
             <div class="modal fade" id="view-file-modal">

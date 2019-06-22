@@ -24,17 +24,17 @@ class ArchivoRepo {
 		$this->Topico_idTopico = $Topico_idTopico;
 	}
 
-	public function getidArchivoRepo()
+	public function getIdArchivoRepo()
 	{
 		return $this->idArchivoRepo;
 	}
 
-	public function getfechaPublicacion()
+	public function getFechaPublicacion()
 	{
 		return $this->fechaPublicacion;
 	}
 
-	public function gettitulo()
+	public function getTitulo()
 	{
 		return $this->titulo;
 	}
@@ -43,7 +43,7 @@ class ArchivoRepo {
 	{
 		return $this->resumen;
 	}
-	public function getrutaArchivo()
+	public function getRutaArchivo()
 	{
 		return $this->rutaArchivo;
 	}
