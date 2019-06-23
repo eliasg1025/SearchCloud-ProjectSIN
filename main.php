@@ -219,7 +219,6 @@
                     <!-- <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"
                             aria-disabled="true">Previous</a></li> -->
                     <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                    	<!-- Falta que reconozca el actual url y añada la varibale GET -->
                         <li class="page-item <?=isActivePage($i, $_GET['pagina'])?>"><a class="page-link" href="main.php<?=$pagina_url.$i?>"><?=$i?></a></li>
                     <?php endfor; ?>
                     <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->

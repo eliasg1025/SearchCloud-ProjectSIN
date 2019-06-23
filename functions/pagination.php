@@ -8,7 +8,8 @@ function getPaginationValues()
     if (isset($_GET['pagina'])) {
 
         if ($_GET['pagina'] == 1) {
-            header("Location: main.php");
+            $file = $_SERVER["PHP_SELF"];
+            header("Location: " . $file);
         } else {
             $pagina = $_GET['pagina'];
         }

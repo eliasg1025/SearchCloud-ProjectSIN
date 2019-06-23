@@ -5,6 +5,8 @@
     require "models/admin-usuario.php";
     require "models/admin-archivorepo.php";
     require "functions/get-functions.php";
+    require "functions/pagination.php";
+    require "functions/active.php";
 
     $conexion = abrirConexion();
 ?>
@@ -21,9 +23,27 @@
 ?>
 
 <?php
+    $paginationValues = getPaginationValues();
+    $start = $paginationValues["start"];
+    $items_by_page = $paginationValues["items_by_page"];
+?>
+
+<?php
     $getById = new GetById($conexion);
 ?>
 
+<?php
+    $adminRepo = new AdminArchivoRepo($conexion);
+    $arrayArchivos = $adminRepo->getAllArchivosRepo($start, $items_by_page);
+
+    $total_pages = $adminRepo->getTotalPages($items_by_page);
+ ?>
+
+ <?php
+    if (!isset($_GET["pagina"])) {
+        $_GET["pagina"] = 1;
+    }
+  ?>
 
 
 <!DOCTYPE html>
@@ -109,116 +129,76 @@
 
             <!-- ARCHIVOS DEL REPOSITORIO -->
             <section class="repo-entries mt-5">
-
-                <div class="repo-entry card m-3">
-                    <div class="card-body">
-                        <span class="badge badge-pill badge-primary">Matematicas</span>
-                        <span class="badge badge-pill badge-success">Universidad de Piura</span>
-                        <h5 class="card-title entry-title mt-2">Integrales simples</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                            sunt
-                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#view-file-modal"><i
-                                class="fas fa-search"></i> Ver</button>
-                        <button class="btn btn-primary popover-dismiss download" role="button" data-toggle="popover"
-                            data-trigger="focus" title="" data-content="No es usuario premium" data-placement="right">
-                            <i class="fas fa-download"></i> Descargar
-                        </button>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Subido por Elias Guere - 16/05/2019</small>
-                    </div>
-                </div>
-                <div class="repo-entry card m-3">
-                    <div class="card-body">
-                        <span class="badge badge-pill badge-primary">Matematicas</span>
-                        <span class="badge badge-pill badge-success">Universidad de Piura</span>
-                        <h5 class="card-title entry-title mt-2">Integrales dobles</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                            sunt
-                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#view-file-modal"><i
-                                class="fas fa-search"></i> Ver</button>
-                        <button class="btn btn-primary popover-dismiss download" role="button" data-toggle="popover"
-                            data-trigger="focus" title="" data-content="No es usuario premium" data-placement="right">
-                            <i class="fas fa-download"></i> Descargar
-                        </button>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Subido por Elias Guere - 16/05/2019</small>
-                    </div>
-                </div>
-                <div class="repo-entry card m-3">
-                    <div class="card-body">
-                        <span class="badge badge-pill badge-primary">Matematicas</span>
-                        <span class="badge badge-pill badge-success">Universidad de Piura</span>
-                        <h5 class="card-title entry-title mt-2">Integrales triples de Piura</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat ab
-                            sunt
-                            veniam quasi laboriosam. Expedita et repellendus accusantium quas?</p>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#view-file-modal"><i
-                                class="fas fa-search"></i> Ver</button>
-                        <button class="btn btn-primary popover-dismiss download" role="button" data-toggle="popover"
-                            data-trigger="focus" title="" data-content="No es usuario premium" data-placement="right">
-                            <i class="fas fa-download"></i> Descargar
-                        </button>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Subido por Elias Guere - 16/05/2019</small>
-                    </div>
-                </div>
-
-            </section>
-            <!-- MODAL FILES -->
-            <div class="modal fade" id="view-file-modal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Integrales triples</h4>
-                            <span class="badge badge-pill badge-primary">Matematicas</span>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <?php foreach($arrayArchivos as $archivo): ?>
+                    <div class="repo-entry card m-3">
+                        <div class="card-body">
+                            <span class="badge badge-pill badge-primary"><?=$archivo->getNombreTopico()?></span>
+                            <span class="badge badge-pill badge-success"><?=$archivo->getNombreUniversidad()?></span>
+                            <h5 class="card-title entry-title mt-2"><?=$archivo->getTitulo()?></h5>
+                            <p class="card-text"><?=$archivo->getResumen()?></p>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#view-file-modal-<?=$archivo->getIdArchivoRepo()?>"><i
+                                    class="fas fa-search"></i> Ver</button>
+                            <button class="btn btn-primary popover-dismiss download" role="button" data-toggle="popover"
+                                data-trigger="focus" title="" data-content="No es usuario premium" data-placement="right">
+                                <i class="fas fa-download"></i> Descargar
+                            </button>
                         </div>
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <div class="row mb-2">
-                                <div class="col">
-                                    <p class="h6">Subido por:</p>
-                                    <p>Elias Guere</p>
+                        <div class="card-footer">
+                            <small class="text-muted">Subido por <?=$archivo->getNombreUsuario()?> / <?=$archivo->getFechaPublicacion()?></small>
+                        </div>
+                    </div>
+                    <!-- MODAL FILES -->
+                    <div class="modal fade" id="view-file-modal-<?=$archivo->getIdArchivoRepo()?>">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title"><?=$archivo->getTitulo()?></h4>
+                                    <span class="badge badge-pill badge-primary"><?=$archivo->getNombreTopico()?></span>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
-                                <div class="col">
-                                    <p class="h6">Fecha de subida:</p>
-                                    <p>16/05/2019</p>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <p class="h6">Subido por:</p>
+                                            <p><?=$archivo->getNombreUsuario()?></p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="h6">Fecha de subida:</p>
+                                            <p><?=$archivo->getFechaPublicacion()?></p>
+                                        </div>
+                                    </div>
+
+                                    <p class="h6">Institucion:</p>
+                                    <p><?=$archivo->getNombreUniversidad()?></p>
+                                    <p class="h6">Resumen:</p>
+                                    <p><?=$archivo->getResumen()?></p>
+                                    <p class="h6">Autor: </p>
+                                    <p>Anonimo</p>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
-
-                            <p class="h6">Institucion:</p>
-                            <p>Univerisdad de Piura</p>
-                            <p class="h6">Resumen:</p>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet porro at, sunt assumenda
-                                quia harum tempora omnis vitae veritatis officiis.</p>
-                            <p class="h6">Autor: </p>
-                            <p>Yo pes quien +</p>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
                     </div>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            </section>
 
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"
-                            aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    <!-- <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"
+                            aria-disabled="true">Previous</a></li> -->
+                    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                        <li class="page-item <?=isActivePage($i, $_GET['pagina'])?>"><a class="page-link" href="repository.php?pagina=<?=$i?>"><?=$i?></a></li>
+                    <?php endfor; ?>
+                    <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
                 </ul>
             </nav>
+
         </div>
 
         <?php require "partials/right-section.php" ?>

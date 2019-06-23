@@ -39,7 +39,7 @@ class ArchivoRepo {
 		return $this->titulo;
 	}
 
-    public function getresumen()
+    public function getResumen()
 	{
 		return $this->resumen;
 	}
