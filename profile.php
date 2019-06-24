@@ -106,11 +106,11 @@
                                             NO
                                         <?php endif; ?>
                                     </p>
-                                    <p><span style="font-weight: bold;">Cantidad de preguntas realizadas:</span> 4</p>
-                                    <p><span style="font-weight: bold;">Cantidad de respuestas:</span> 5</p>
+                                    <p><span style="font-weight: bold;">Cantidad de preguntas realizadas:</span> <?=$getById->getCountPosts($_SESSION["idUsuario"])?></p>
+                                    <p><span style="font-weight: bold;">Cantidad de respuestas:</span> <?=$getById->getCountRespuestas($_SESSION["idUsuario"])?></p>
                                 </div>
                                 <div class="card-text col">
-                                    <p><span style="font-weight: bold;">Archivos subidos:</span> 2</p>
+                                    <p><span style="font-weight: bold;">Archivos subidos:</span> <?=$getById->getCountArchivos($_SESSION["idUsuario"])?></p>
                                     <p><a href="main.php">Cambiar a premium</a></p>
                                 </div>
                             </div>

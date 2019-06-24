@@ -8,13 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SearchCloud</title>
     <!-- ICON -->
-    <link rel="icon" type="image/png" href="../assets/img/logo.png" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
     <!-- BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="../assets/fa/css/all.min.css">
+    <link rel="stylesheet" href="assets/fa/css/all.min.css">
     <!-- CUSTOM CSS (css personalizado) -->
-    <link rel="stylesheet" href="../assets/css/custom/falta-pagina-style.css">
+    <link rel="stylesheet" href="assets/css/custom/falta-pagina-style.css">
 </head>
 
 <body>
@@ -36,13 +36,13 @@
     </div>
 
     <!-- BOOTSTRAP JS -->
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/jquery-3.4.1.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- Popovers -->
-    <script type="text/javascript" src="../assets/js/scripts/notification-popover.js"></script>
-    <script type="text/javascript" src="../assets/js/scripts/profile-popover.js"></script>
+    <script type="text/javascript" src="assets/js/scripts/notification-popover.js"></script>
+    <script type="text/javascript" src="assets/js/scripts/profile-popover.js"></script>
 
     <script type="text/javascript">
         function regresarPagina() {

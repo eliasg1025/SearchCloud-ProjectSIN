@@ -52,7 +52,39 @@ class GetById
 
         return $nombreTopico;
     }
-    
+
+    public function getCountPosts($Usuario_idUsuario) {
+        $sql = "SELECT COUNT(*) FROM post WHERE post.Usuario_idUsuario = $Usuario_idUsuario";
+
+        $registro = $this->conexion->query($sql);
+
+        $resultado = $registro->fetch(PDO::FETCH_ASSOC);
+        $cantidad_posts = $resultado["COUNT(*)"];
+
+        return $cantidad_posts;
+    }
+
+    public function getCountRespuestas($Usuario_idUsuario) {
+        $sql = "SELECT COUNT(*) FROM respuesta WHERE respuesta.Usuario_idUsuario = $Usuario_idUsuario";
+
+        $registro = $this->conexion->query($sql);
+
+        $resultado = $registro->fetch(PDO::FETCH_ASSOC);
+        $cantidad_respuestas = $resultado["COUNT(*)"];
+
+        return $cantidad_respuestas;
+    }
+
+    public function getCountArchivos($Usuario_idUsuario) {
+        $sql = "SELECT COUNT(*) FROM archivorepo WHERE archivorepo.Usuario_idUsuario = $Usuario_idUsuario";
+
+        $registro = $this->conexion->query($sql);
+
+        $resultado = $registro->fetch(PDO::FETCH_ASSOC);
+        $cantidad_archivos = $resultado["COUNT(*)"];
+
+        return $cantidad_archivos;
+    }
 }
 
 
