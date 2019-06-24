@@ -1,5 +1,5 @@
 <?php
-    include_once 'post-archivorepo.php';
+    include_once 'new-archivorepo.php';
 
     class AdminArchivoRepo
     {
@@ -36,7 +36,7 @@
                 $NombreUniversidad = $register["NombreUniversidad"];
                 $NombreTopico = $register["NombreTopico"];
 
-                $archivorepo = new PostArchivoRepo($idArchivoRepo, $fechaPublicacion, $titulo, $resumen, $rutaArchivo, $Calificacion_idCalificacion, $NombreUsuario, $NombreUniversidad, $NombreTopico);
+                $archivorepo = new __ArchivoRepo($idArchivoRepo, $fechaPublicacion, $titulo, $resumen, $rutaArchivo, $Calificacion_idCalificacion, $NombreUsuario, $NombreUniversidad, $NombreTopico);
 
                 $arrayArchivos[$count] = $archivorepo;
                 $count++;

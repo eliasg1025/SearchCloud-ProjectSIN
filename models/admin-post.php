@@ -37,34 +37,34 @@ class AdminPost
     public function getCantidadRespuestasPorPost() {
         $sql = "SELECT Post_idPost, COUNT(*) FROM respuesta GROUP BY Post_idPost";
         $result = $this->conexion->query($sql);
-        
+
         $cantidadRespuestas = array();
-        
+
         while ($row = $result->fetch(PDO::FETCH_BOTH)) {
             $Post_idPost = $row[0];
             $numeroRespuestas = $row[1];
-            
+
             $cantidadRespuestas[$Post_idPost] = $numeroRespuestas;
         }
-        
+
         return $cantidadRespuestas;
     }
-    
+
     public function getPostByDateDESC($Topico_idTopicoSession, $start, $items_by_page) {
-        
+
         if ($Topico_idTopicoSession != 0) {
             $sql = "SELECT * FROM `post` WHERE `Topico_idTopico`= $Topico_idTopicoSession ORDER BY `fechaPublicacion` DESC LIMIT $start, $items_by_page ";
         } else {
             $sql = "SELECT * FROM `post` ORDER BY `fechaPublicacion` DESC LIMIT $start, $items_by_page";
         }
-    
+
         $result = $this->conexion->query($sql);
-        
+
         $arrayPost = array();
         $count = 0;
 
         while ($register = $result->fetch(PDO::FETCH_ASSOC)) {
-            
+
             $idPost = $register["idPost"];
             $fechaPublicacion = $register["fechaPublicacion"];
             $titulo = $register["titulo"];
@@ -73,31 +73,31 @@ class AdminPost
             $imagenAdjunta = $register["imagenAdjunta"];
             $Topico_idTopico = $register["Topico_idTopico"];
             $Usuario_idUsuario = $register["Usuario_idUsuario"];
-            
+
             $post = new Post($idPost, $fechaPublicacion, $titulo, $texto, $archivoAdjunto, $imagenAdjunta, $Topico_idTopico, $Usuario_idUsuario);
-            
+
             $arrayPost[$count] = $post;
-            
+
             $count++;
         }
-            
+
         return $arrayPost;
     }
-    
+
     public function getPostByDateASC($Topico_idTopicoSession, $start, $items_by_page) {
         if ($Topico_idTopicoSession != 0) {
             $sql = "SELECT * FROM `post` WHERE `Topico_idTopico`= $Topico_idTopicoSession ORDER BY `fechaPublicacion` ASC LIMIT $start, $items_by_page ";
         } else {
             $sql = "SELECT * FROM `post` ORDER BY `fechaPublicacion` ASC LIMIT $start, $items_by_page";
         }
-        
+
         $result = $this->conexion->query($sql);
-        
+
         $arrayPost = array();
         $count = 0;
-        
+
         while ($register = $result->fetch(PDO::FETCH_ASSOC)) {
-            
+
             $idPost = $register["idPost"];
             $fechaPublicacion = $register["fechaPublicacion"];
             $titulo = $register["titulo"];
@@ -106,14 +106,14 @@ class AdminPost
             $imagenAdjunta = $register["imagenAdjunta"];
             $Topico_idTopico = $register["Topico_idTopico"];
             $Usuario_idUsuario = $register["Usuario_idUsuario"];
-            
+
             $post = new Post($idPost, $fechaPublicacion, $titulo, $texto, $archivoAdjunto, $imagenAdjunta, $Topico_idTopico, $Usuario_idUsuario);
-            
+
             $arrayPost[$count] = $post;
-            
+
             $count++;
         }
-        
+
         return $arrayPost;
     }
 
@@ -133,8 +133,8 @@ class AdminPost
 
         return $total_pages;
     }
-    
-    
+
+
 }
 
 

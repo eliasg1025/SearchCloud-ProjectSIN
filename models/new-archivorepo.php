@@ -1,6 +1,6 @@
 <?php
 
-class PostArchivoRepo {
+class __ArchivoRepo {
 
     private $idArchivoRepo;
 	private $fechaPublicacion;
