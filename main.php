@@ -37,13 +37,17 @@
         $_GET["Topico_idTopico"] = 0;
     }
 
-    if (!isset($_POST["filtro_orden"]) || $_POST["filtro_orden"] == "desc"){
-        $postEntries = $adminPost->getPostByDateDESC($_GET["Topico_idTopico"], $start, $items_by_page);
-    } else {
-        $postEntries = $adminPost->getPostByDateASC($_GET["Topico_idTopico"], $start, $items_by_page);
+    if (!isset($_POST["palabra_buscar"])) {
+        $_POST["palabra_buscar"] = "";
     }
 
-    $total_pages = $adminPost->getTotalPages($_GET["Topico_idTopico"], $items_by_page);
+    if (!isset($_POST["filtro_orden"]) || $_POST["filtro_orden"] == "desc"){
+        $postEntries = $adminPost->getPostByDateDESC($_POST["palabra_buscar"], $_GET["Topico_idTopico"], $start, $items_by_page);
+    } else {
+        $postEntries = $adminPost->getPostByDateASC($_POST["palabra_buscar"], $_GET["Topico_idTopico"], $start, $items_by_page);
+    }
+
+    $total_pages = $adminPost->getTotalPages($_POST["palabra_buscar"], $_GET["Topico_idTopico"], $items_by_page);
 ?>
 
 <?php $getById = new GetById($conexion); ?>
@@ -158,8 +162,13 @@
                         Ordenar por:
                     </label>
                     <select id="entries-filter" name="filtro_orden" class="form-control col-sm-5">
-                        <option value="desc" selected>Mas recientes</option>
-                        <option value="asc">Mas antiguas</option>
+                        <?php if (!isset($_POST["filtro_orden"]) || $_POST["filtro_orden"] == "desc"): ?>
+                            <option value="desc" selected>Mas recientes primero</option>
+                            <option value="asc">Mas antiguas primero</option>
+                        <?php else: ?>
+                            <option value="desc">Mas recientes primero</option>
+                            <option value="asc" selected>Mas antiguas primero</option>
+                        <?php endif; ?>
                     </select>
 
                     <input type="submit" value="►" class="btn btn-outline-light col-sm-1">
@@ -172,9 +181,9 @@
                     </label>
                     <div class="input-group col-sm-6" style="padding: 0;">
                         <input id="search-filter" type="text" class="form-control" placeholder="Ingrese palabra clave"
-                            aria-label="Ingrese palabra clave" aria-describedby="button-search">
+                            aria-label="Ingrese palabra clave" aria-describedby="button-search" name="palabra_buscar">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-light" type="button" id="button-search">
+                            <button class="btn btn-outline-light" type="submit" id="button-search">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
