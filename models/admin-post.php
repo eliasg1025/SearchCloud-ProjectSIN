@@ -54,11 +54,11 @@ class AdminPost
 
         if ($Topico_idTopicoSession != 0) {
             $sql = "SELECT * FROM post
-                    WHERE post.titulo LIKE '%$palabra_buscar%' OR post.texto LIKE '%$palabra_buscar%' AND post.Topico_idTopico = $Topico_idTopicoSession
+                    WHERE ((post.titulo LIKE '%$palabra_buscar%') OR (post.texto LIKE '%$palabra_buscar%')) AND (post.Topico_idTopico = $Topico_idTopicoSession)
                     ORDER BY post.fechaPublicacion DESC LIMIT $start, $items_by_page";
         } else {
             $sql = "SELECT * FROM post
-                    WHERE post.titulo LIKE '%$palabra_buscar%' OR post.texto LIKE '%$palabra_buscar%'
+                    WHERE (post.titulo LIKE '%$palabra_buscar%' OR post.texto LIKE '%$palabra_buscar%')
                     ORDER BY post.fechaPublicacion DESC LIMIT $start, $items_by_page";
         }
 
@@ -91,11 +91,11 @@ class AdminPost
     public function getPostByDateASC($palabra_buscar, $Topico_idTopicoSession, $start, $items_by_page) {
         if ($Topico_idTopicoSession != 0) {
             $sql = "SELECT * FROM post
-                    WHERE post.titulo LIKE '%$palabra_buscar%' OR post.texto LIKE '%$palabra_buscar%' AND post.Topico_idTopico = $Topico_idTopicoSession
+                    WHERE ((post.titulo LIKE '%$palabra_buscar%') OR (post.texto LIKE '%$palabra_buscar%')) AND (post.Topico_idTopico = $Topico_idTopicoSession)
                     ORDER BY post.fechaPublicacion ASC LIMIT $start, $items_by_page";
         } else {
             $sql = "SELECT * FROM post
-                    WHERE post.titulo LIKE '%$palabra_buscar%' OR post.texto LIKE '%$palabra_buscar%'
+                    WHERE ((post.titulo LIKE '%$palabra_buscar%') OR (post.texto LIKE '%$palabra_buscar%')
                     ORDER BY post.fechaPublicacion ASC LIMIT $start, $items_by_page";
         }
 
